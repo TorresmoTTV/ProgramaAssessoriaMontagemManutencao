@@ -13,15 +13,16 @@ public class TecnicoDAO {
     public void cadastrarTecnico(Tecnico tVO) {
         try {
             Connection con = Conexao.getConexao();
-            String sql = "insert into usuario (idUsuario, nome, cpf, endereco, email, telefone) "
-                    + "(?, ?, ?, ?, ?, ?)";
+            String sql = "insert into usuario (nome, cpf, endereco, email, telefone, usuario, senha) "
+                    + "(?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, tVO.getIdusuario());
-            pst.setString(2, tVO.getNome());
-            pst.setInt(3, tVO.getCPF());
-            pst.setString(4, tVO.getEndreco());
-            pst.setString(5, tVO.getEmail());
-            pst.setInt(6, tVO.getTelefone());
+            pst.setString(1, tVO.getNome());
+            pst.setInt(2, tVO.getCPF());
+            pst.setString(3, tVO.getEndreco());
+            pst.setString(4, tVO.getEmail());
+            pst.setInt(5, tVO.getTelefone());
+            pst.setString(6, tVO.getUsuario());
+            pst.setString(7, tVO.getSenha());
             pst.execute();
             System.out.println("Tecnico cadastrado com sucesso!!");
         } catch (SQLException e) {

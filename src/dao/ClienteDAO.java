@@ -13,15 +13,16 @@ public class ClienteDAO {
     public void cadastrarCliente(Cliente cVO) {
         try {
             Connection con = Conexao.getConexao();
-            String sql = "insert into usuario (idUsuario, nome, cpf, endereco, email, telefone) "
-                    + "(?, ?, ?, ?, ?, ?)";
+            String sql = "insert into usuario (nome, cpf, endereco, email, telefone, usuario, senha) "
+                    + "(?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, cVO.getIdusuario());
-            pst.setString(2, cVO.getNome());
-            pst.setInt(3, cVO.getCPF());
-            pst.setString(4, cVO.getEndreco());
-            pst.setString(5, cVO.getEmail());
-            pst.setInt(6, cVO.getTelefone());
+            pst.setString(1, cVO.getNome());
+            pst.setInt(2, cVO.getCPF());
+            pst.setString(3, cVO.getEndreco());
+            pst.setString(4, cVO.getEmail());
+            pst.setInt(5, cVO.getTelefone());
+            pst.setString(6, cVO.getUsuario());
+            pst.setString(7, cVO.getSenha());
             pst.execute();
             System.out.println("Cliente cadastrado com sucesso!!");
         } catch (SQLException e) {

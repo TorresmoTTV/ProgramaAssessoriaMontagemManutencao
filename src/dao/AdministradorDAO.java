@@ -13,15 +13,16 @@ public class AdministradorDAO {
     public void cadastrarAdministrador(Administrador aVO) {
         try {
             Connection con = Conexao.getConexao();
-            String sql = "insert into usuario (idUsuario, nome, cpf, endereco, email, telefone) "
-                    + "(?, ?, ?, ?, ?, ?)";
+            String sql = "insert into usuario (nome, cpf, endereco, email, telefone, usuario, senha) "
+                    + "(?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setInt(1, aVO.getIdusuario());
-            pst.setString(2, aVO.getNome());
-            pst.setInt(3, aVO.getCPF());
-            pst.setString(4, aVO.getEndreco());
-            pst.setString(5, aVO.getEmail());
-            pst.setInt(6, aVO.getTelefone());
+            pst.setString(1, aVO.getNome());
+            pst.setInt(2, aVO.getCPF());
+            pst.setString(3, aVO.getEndreco());
+            pst.setString(4, aVO.getEmail());
+            pst.setInt(5, aVO.getTelefone());
+            pst.setString(6, aVO.getUsuario());
+            pst.setString(7, aVO.getSenha());
             pst.execute();
             System.out.println("Administrador cadastrado com sucesso!!");
         } catch (SQLException e) {
