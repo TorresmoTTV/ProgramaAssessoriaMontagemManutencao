@@ -3,12 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-
 /**
  *
  * @author grand
  */
-public class Projeto {
+public class Projeto extends OrdemDeServico {
 
     private int idProjeto;
     private String nome;
@@ -18,14 +17,19 @@ public class Projeto {
     private int idTecnico;
     private int idCliente;
 
-    public Projeto(int idProjeto, String nome, String status, String dataInicio, String dataFim, int idTecnico, int idCliente) {
+
+
+    public Projeto(int ordemID, String dataCriacao, String status, String descricao, int idCliente, int idTecnico,
+            int idProjeto, String nome, String status2, String dataInicio, String dataFim, int idTecnico2,
+            int idCliente2) {
+        super(ordemID, dataCriacao, status, descricao, idCliente, idTecnico);
         this.idProjeto = idProjeto;
         this.nome = nome;
-        this.status = status;
+        status = status2;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        this.idTecnico = idTecnico;
-        this.idCliente = idCliente;
+        idTecnico = idTecnico2;
+        idCliente = idCliente2;
     }
 
     public void atualizarStatus(String novoStatus) {
