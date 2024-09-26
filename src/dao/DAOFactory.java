@@ -1,20 +1,10 @@
 package dao;
 
 public class DAOFactory {
-    private static ClienteDAO cDao = new ClienteDAO();
-    private static TecnicoDAO tDao = new TecnicoDAO();
-    private static AdministradorDAO aDao = new AdministradorDAO();
+    private static UsuarioDAO uDao = new UsuarioDAO();
 
-    public static ClienteDAO getClienteDAO() {
-        return cDao;
-    }
-
-    public static TecnicoDAO getTecnicoDAO() {
-        return tDao;
-    }
-
-    public static AdministradorDAO getAdministradorDAO() {
-        return aDao;
+    public static UsuarioDAO getUsuarioDAO() {
+        return uDao;
     }
 
 }

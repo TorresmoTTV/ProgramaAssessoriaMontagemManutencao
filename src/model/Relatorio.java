@@ -15,12 +15,15 @@ public class Relatorio {
     private String dataGeracao;
     private String conteudo;
 
+
     public Relatorio(int idRelatorio, String tipo, String dataGeracao, String conteudo) {
         this.idRelatorio = idRelatorio;
         this.tipo = tipo;
         this.dataGeracao = dataGeracao;
         this.conteudo = conteudo;
     }
+
+    
 
     public void gerarRelatorio() {
         System.out.println("Relatório gerado: " + conteudo);
@@ -29,4 +32,37 @@ public class Relatorio {
     public void visualizar() {
         System.out.println("Visualizando relatório de tipo: " + tipo);
     }
+
+    public int getIdRelatorio() {
+        return idRelatorio;
+    }
+
+    public void setIdRelatorio(int idRelatorio) {
+        this.idRelatorio = idRelatorio;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getDataGeracao() {
+        return dataGeracao;
+    }
+
+    public void setDataGeracao(String dataGeracao) {
+        this.dataGeracao = dataGeracao;
+    }
+
+    public String getConteudo() {
+        return conteudo;
+    }
+
+    public void setConteudo(String conteudo) {
+        this.conteudo = conteudo;
+    }
+
 }

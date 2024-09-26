@@ -10,12 +10,13 @@ public class Usuario {
     private String endreco;
     private String usuario;
     private String senha;
+    private int tipo;
 
     public Usuario() {
     }
 
     public Usuario(int idusuario, int CPF, int telefone, String nome, String email, String endreco, String usuario,
-            String senha) {
+            String senha, int tipo) {
         this.idusuario = idusuario;
         this.CPF = CPF;
         this.telefone = telefone;
@@ -24,6 +25,7 @@ public class Usuario {
         this.endreco = endreco;
         this.usuario = usuario;
         this.senha = senha;
+        this.tipo = tipo;
     }
 
     public int getIdusuario() {
@@ -90,10 +92,19 @@ public class Usuario {
         this.senha = senha;
     }
 
+    public String getTipo() {
+        return senha;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "idusuario=" + idusuario + ", CPF=" + CPF + ", telefone=" + telefone + ", nome=" + nome
-                + ", email=" + email + ", endreco=" + endreco + ", usuario=" + usuario + ", senha=" + senha + '}';
+        return "Usuario [idusuario=" + idusuario + ", CPF=" + CPF + ", telefone=" + telefone + ", nome=" + nome
+                + ", email=" + email + ", endreco=" + endreco + ", usuario=" + usuario + ", senha=" + senha + ", tipo="
+                + tipo + "]";
     }
 
     public void solicitarServico() {
