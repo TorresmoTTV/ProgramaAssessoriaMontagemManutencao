@@ -1,55 +1,37 @@
 package model;
 
 public class Usuario {
-
-    private int idusuario;
-    private int CPF;
-    private int telefone;
+    private int idUsuario;
     private String nome;
     private String email;
-    private String endreco;
+    private String endereco;
+    private String cpf;
+    private String telefone;
     private String usuario;
     private String senha;
-    private int tipo;
+    private int perfilDeAcessoId;
 
-    public Usuario() {
-    }
+    public Usuario() {}
 
-    public Usuario(int idusuario, int CPF, int telefone, String nome, String email, String endreco, String usuario,
-            String senha, int tipo) {
-        this.idusuario = idusuario;
-        this.CPF = CPF;
-        this.telefone = telefone;
+    public Usuario(int idUsuario, String nome, String email, String endereco, String cpf, String telefone, String usuario, String senha, int perfilDeAcessoId) {
+        this.idUsuario = idUsuario;
         this.nome = nome;
         this.email = email;
-        this.endreco = endreco;
+        this.endereco = endereco;
+        this.cpf = cpf;
+        this.telefone = telefone;
         this.usuario = usuario;
         this.senha = senha;
-        this.tipo = tipo;
+        this.perfilDeAcessoId = perfilDeAcessoId;
     }
 
-    public int getIdusuario() {
-        return idusuario;
+    // Getters e Setters
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdusuario(int idusuario) {
-        this.idusuario = idusuario;
-    }
-
-    public int getCPF() {
-        return CPF;
-    }
-
-    public void setCPF(int CPF) {
-        this.CPF = CPF;
-    }
-
-    public int getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(int telefone) {
-        this.telefone = telefone;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNome() {
@@ -68,12 +50,28 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getEndreco() {
-        return endreco;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setEndreco(String endreco) {
-        this.endreco = endreco;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getUsuario() {
@@ -92,31 +90,26 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public String getTipo() {
-        return senha;
+    public int getPerfilDeAcessoId() {
+        return perfilDeAcessoId;
     }
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
+    public void setPerfilDeAcessoId(int perfilDeAcessoId) {
+        this.perfilDeAcessoId = perfilDeAcessoId;
     }
 
+    // Método para exibir informações do usuário (opcional)
     @Override
     public String toString() {
-        return "Usuario [idusuario=" + idusuario + ", CPF=" + CPF + ", telefone=" + telefone + ", nome=" + nome
-                + ", email=" + email + ", endreco=" + endreco + ", usuario=" + usuario + ", senha=" + senha + ", tipo="
-                + tipo + "]";
+        return "Usuario{" +
+                "idUsuario=" + idUsuario +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", endereco='" + endereco + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", usuario='" + usuario + '\'' +
+                ", perfilDeAcessoId=" + perfilDeAcessoId +
+                '}';
     }
-
-    public void solicitarServico() {
-        System.out.println("Serviço solicitado.");
-    }
-
-    public void verificarStatus() {
-        System.out.println("Verificando o status do pedido...");
-    }
-
-    public void assistirUnboxing() {
-        System.out.println("Assistindo o vídeo de unboxing da peça.");
-    }
-
 }
