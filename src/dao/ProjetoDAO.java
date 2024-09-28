@@ -65,7 +65,7 @@ public class ProjetoDAO {
                 projeto.setDataInicio(rs.getDate("DataInicio").toLocalDate()); // Converter Date para LocalDate
                 projeto.setDataFim(rs.getDate("DataFim") != null ? rs.getDate("DataFim").toLocalDate() : null); // Verifica se DataFim é null
                 projeto.setLinkUnboxing(rs.getString("LinkUnboxing"));
-                projeto.setFkOrdemDeServicoId(rs.getInt("fk_OrdemdeServico_IDOrdem"));
+                projeto.setFkOrdemDeServicoIdOrdem(rs.getInt("fk_OrdemdeServico_IDOrdem"));
             }
         }
         return projeto;
