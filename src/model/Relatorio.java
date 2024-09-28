@@ -1,38 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author grand
- */
+import java.util.Date;
+
 public class Relatorio {
 
     private int idRelatorio;
     private String tipo;
-    private String dataGeracao;
+    private Date dataGeracao;
     private String conteudo;
+    private int fkUsuarioIdUsuario;
 
-
-    public Relatorio(int idRelatorio, String tipo, String dataGeracao, String conteudo) {
+    // Construtor
+    public Relatorio(int idRelatorio, String tipo, Date dataGeracao, String conteudo, int fkUsuarioIdUsuario) {
         this.idRelatorio = idRelatorio;
         this.tipo = tipo;
         this.dataGeracao = dataGeracao;
         this.conteudo = conteudo;
+        this.fkUsuarioIdUsuario = fkUsuarioIdUsuario;
     }
 
-    
-
-    public void gerarRelatorio() {
-        System.out.println("Relatório gerado: " + conteudo);
+    // Construtor padrão
+    public Relatorio() {
     }
 
-    public void visualizar() {
-        System.out.println("Visualizando relatório de tipo: " + tipo);
-    }
-
+    // Getters e Setters
     public int getIdRelatorio() {
         return idRelatorio;
     }
@@ -49,11 +40,11 @@ public class Relatorio {
         this.tipo = tipo;
     }
 
-    public String getDataGeracao() {
+    public Date getDataGeracao() {
         return dataGeracao;
     }
 
-    public void setDataGeracao(String dataGeracao) {
+    public void setDataGeracao(Date dataGeracao) {
         this.dataGeracao = dataGeracao;
     }
 
@@ -65,4 +56,18 @@ public class Relatorio {
         this.conteudo = conteudo;
     }
 
+    public int getFkUsuarioIdUsuario() {
+        return fkUsuarioIdUsuario;
+    }
+
+    public void setFkUsuarioIdUsuario(int fkUsuarioIdUsuario) {
+        this.fkUsuarioIdUsuario = fkUsuarioIdUsuario;
+    }
+
+    @Override
+    public String toString() {
+        return "Relatorio [idRelatorio=" + idRelatorio + ", tipo=" + tipo +
+                ", dataGeracao=" + dataGeracao + ", conteudo=" + conteudo +
+                ", fkUsuarioIdUsuario=" + fkUsuarioIdUsuario + "]";
+    }
 }

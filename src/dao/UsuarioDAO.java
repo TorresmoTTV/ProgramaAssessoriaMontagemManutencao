@@ -38,18 +38,18 @@ public class UsuarioDAO {
                 ResultSet rs = pst.executeQuery()) {
 
             while (rs.next()) {
-                Usuario usuario = new Usuario();
-                usuario.setIdUsuario(rs.getInt("IDUsuario"));
-                usuario.setNome(rs.getString("Nome"));
-                usuario.setEmail(rs.getString("Email"));
-                usuario.setEndereco(rs.getString("Endereco"));
-                usuario.setCpf(rs.getString("CPF"));
-                usuario.setTelefone(rs.getString("Telefone"));
-                usuario.setUsuario(rs.getString("Usuario"));
-                usuario.setSenha(rs.getString("Senha"));
-                usuario.setPerfilDeAcessoId(rs.getInt("fk_PerfildeAcesso_IDPerfildeAcesso"));
+                Usuario us = new Usuario();
+                us.setIdUsuario(rs.getInt("IDUsuario"));
+                us.setNome(rs.getString("Nome"));
+                us.setEmail(rs.getString("Email"));
+                us.setEndereco(rs.getString("Endereco"));
+                us.setCpf(rs.getString("CPF"));
+                us.setTelefone(rs.getString("Telefone"));
+                us.setUsuario(rs.getString("Usuario"));
+                us.setSenha(rs.getString("Senha"));
+                us.setPerfilDeAcessoId(rs.getInt("fk_PerfildeAcesso_IDPerfildeAcesso"));
 
-                usuarioS.add(usuario);
+                usuarioS.add(us);
             }
         }
         return usuarioS;
@@ -88,7 +88,7 @@ public class UsuarioDAO {
 
     public Usuario getUsuarioById(int id) throws SQLException {
         String sql = "SELECT * FROM Usuario WHERE IDUsuario = ?";
-        Usuario usuario = null;
+        Usuario us = null;
 
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql)) {
@@ -96,19 +96,19 @@ public class UsuarioDAO {
             ResultSet rs = pst.executeQuery();
 
             if (rs.next()) {
-                usuario = new Usuario();
-                usuario.setIdUsuario(rs.getInt("IDUsuario"));
-                usuario.setNome(rs.getString("Nome"));
-                usuario.setEmail(rs.getString("Email"));
-                usuario.setEndereco(rs.getString("Endereco"));
-                usuario.setCpf(rs.getString("CPF"));
-                usuario.setTelefone(rs.getString("Telefone"));
-                usuario.setUsuario(rs.getString("Usuario"));
-                usuario.setSenha(rs.getString("Senha"));
-                usuario.setPerfilDeAcessoId(rs.getInt("fk_PerfildeAcesso_IDPerfildeAcesso"));
+                us = new Usuario();
+                us.setIdUsuario(rs.getInt("IDUsuario"));
+                us.setNome(rs.getString("Nome"));
+                us.setEmail(rs.getString("Email"));
+                us.setEndereco(rs.getString("Endereco"));
+                us.setCpf(rs.getString("CPF"));
+                us.setTelefone(rs.getString("Telefone"));
+                us.setUsuario(rs.getString("Usuario"));
+                us.setSenha(rs.getString("Senha"));
+                us.setPerfilDeAcessoId(rs.getInt("fk_PerfildeAcesso_IDPerfildeAcesso"));
             }
         }
-        return usuario;
+        return us;
     }
 
 }

@@ -1,78 +1,60 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PerfilDeAcesso {
-    private int idPerf;
-    private String nomeP;
+
+    private int idPerfilDeAcesso;
+    private String nome;
     private String descricao;
-    private List<String> perm;
+    private String tipo;
 
-    public PerfilDeAcesso() {
-        this.perm = new ArrayList<>();
-    }
-
-    public PerfilDeAcesso(int idPerf, String nomeP, String descricao) {
-        this.idPerf = idPerf;
-        this.nomeP = nomeP;
+    // Construtor
+    public PerfilDeAcesso(int idPerfilDeAcesso, String nome, String descricao, String tipo) {
+        this.idPerfilDeAcesso = idPerfilDeAcesso;
+        this.nome = nome;
         this.descricao = descricao;
-        this.perm = new ArrayList<>();
+        this.tipo = tipo;
     }
 
-    public int getIdPerfil() {
-        return idPerf;
+    // Construtor padrão
+    public PerfilDeAcesso() {
     }
 
-    public void setIdPerfil(int idPerf) {
-        this.idPerf = idPerf;
+    // Getters e Setters
+    public int getIdPerfilDeAcesso() {
+        return idPerfilDeAcesso;
     }
 
-    public String getnomePerfil() {
-        return nomeP;
+    public void setIdPerfilDeAcesso(int idPerfilDeAcesso) {
+        this.idPerfilDeAcesso = idPerfilDeAcesso;
     }
 
-    public void setnomePerfil(String nomeP) {
-        this.nomeP = nomeP;
+    public String getNome() {
+        return nome;
     }
 
-    public String getDescricaoPerfil() {
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
         return descricao;
     }
 
-    public void setDescricaoPerfil(String descricao) {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    public List<String> getPerm() {
-        return perm;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setPerm(List<String> perm) {
-        this.perm = perm;
-    }
-
-    public void adicionarPerm(String permissao) {
-        if (!perm.contains(permissao)) {
-            perm.add(permissao);
-        }
-    }
-
-    public void removerPermissao(String permissao) {
-        perm.remove(permissao);
-    }
-
-    public boolean temPermissao(String permissao) {
-        return perm.contains(permissao);
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
     public String toString() {
-        return "PerfilDeAcesso{" +
-                "idPerf=" + idPerf +
-                ", nomeP='" + nomeP + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", perm=" + perm +
-                '}';
+        return "PerfilDeAcesso [idPerfilDeAcesso=" + idPerfilDeAcesso + ", nome=" + nome + ", descricao=" + descricao
+                + ", tipo=" + tipo + "]";
     }
 }

@@ -21,10 +21,12 @@ public class UsuarioServicos {
         if (usuario.getNome() == null || usuario.getNome().isEmpty()) {
             throw new IllegalArgumentException("O nome do usuário não pode estar vazio.");
         }
-        if (usuario.getCpf().length() != 11) {
-            throw new IllegalArgumentException("O CPF deve conter 11 dígitos.");
+        if (usuario.getCpf().length() != 14) {
+            throw new IllegalArgumentException("O CPF deve conter 14 dígitos.");
         }
-        
+        if (usuario.getTelefone().length() != 14) {
+            throw new IllegalArgumentException("O telefone deve conter 14 dígitos.");
+        }
         usuarioDAO.cadastrarUsuario(usuario);
     }
 

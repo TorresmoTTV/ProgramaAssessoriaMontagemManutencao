@@ -1,46 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
-/**
- *
- * @author grand
- */
-public class Projeto extends OrdemDeServico {
+
+import java.util.Date;
+
+public class Projeto {
 
     private int idProjeto;
     private String nome;
-    private String status;
-    private String dataInicio;
-    private String dataFim;
-    private int idTecnico;
-    private int idCliente;
+    private String condicao;
+    private Date dataInicio;
+    private Date dataFim;
+    private String linkUnboxing;
+    private int fkOrdemDeServicoIdOrdem;
 
-
-
-    public Projeto(int ordemID, String dataCriacao, String status, String descricao, int idCliente, int idTecnico,
-            int idProjeto, String nome, String status2, String dataInicio, String dataFim, int idTecnico2,
-            int idCliente2) {
-        super(ordemID, dataCriacao, status, descricao, idCliente, idTecnico);
+    // Construtor
+    public Projeto(int idProjeto, String nome, String condicao, Date dataInicio, Date dataFim, String linkUnboxing,
+            int fkOrdemDeServicoIdOrdem) {
         this.idProjeto = idProjeto;
         this.nome = nome;
-        status = status2;
+        this.condicao = condicao;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
-        idTecnico = idTecnico2;
-        idCliente = idCliente2;
+        this.linkUnboxing = linkUnboxing;
+        this.fkOrdemDeServicoIdOrdem = fkOrdemDeServicoIdOrdem;
     }
 
-    public void atualizarStatus(String novoStatus) {
-        this.status = novoStatus;
-        System.out.println("Status do projeto atualizado para: " + novoStatus);
+    // Construtor padrão
+    public Projeto() {
     }
 
-    public void acompanharProjeto() {
-        System.out.println("Acompanhando projeto: " + nome);
-    }
-
+    // Getters e Setters
     public int getIdProjeto() {
         return idProjeto;
     }
@@ -57,44 +45,50 @@ public class Projeto extends OrdemDeServico {
         this.nome = nome;
     }
 
-    public String getStatus() {
-        return status;
+    public String getCondicao() {
+        return condicao;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCondicao(String condicao) {
+        this.condicao = condicao;
     }
 
-    public String getDataInicio() {
+    public Date getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(String dataInicio) {
+    public void setDataInicio(Date dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public String getDataFim() {
+    public Date getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(String dataFim) {
+    public void setDataFim(Date dataFim) {
         this.dataFim = dataFim;
     }
 
-    public int getIdTecnico() {
-        return idTecnico;
+    public String getLinkUnboxing() {
+        return linkUnboxing;
     }
 
-    public void setIdTecnico(int idTecnico) {
-        this.idTecnico = idTecnico;
+    public void setLinkUnboxing(String linkUnboxing) {
+        this.linkUnboxing = linkUnboxing;
     }
 
-    public int getIdCliente() {
-        return idCliente;
+    public int getFkOrdemDeServicoIdOrdem() {
+        return fkOrdemDeServicoIdOrdem;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setFkOrdemDeServicoIdOrdem(int fkOrdemDeServicoIdOrdem) {
+        this.fkOrdemDeServicoIdOrdem = fkOrdemDeServicoIdOrdem;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Projeto [idProjeto=" + idProjeto + ", nome=" + nome + ", condicao=" + condicao +
+                ", dataInicio=" + dataInicio + ", dataFim=" + dataFim +
+                ", linkUnboxing=" + linkUnboxing + ", fkOrdemDeServicoIdOrdem=" + fkOrdemDeServicoIdOrdem + "]";
+    }
 }
