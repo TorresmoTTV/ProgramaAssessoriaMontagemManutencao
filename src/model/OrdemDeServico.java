@@ -10,7 +10,6 @@ public class OrdemDeServico {
     private String descricao;
     private int fkUsuarioIdUsuario;
 
-    // Construtor
     public OrdemDeServico(int idOrdem, Date dataCriacao, String condicao, String descricao, int fkUsuarioIdUsuario) {
         this.idOrdem = idOrdem;
         this.dataCriacao = dataCriacao;
@@ -19,11 +18,9 @@ public class OrdemDeServico {
         this.fkUsuarioIdUsuario = fkUsuarioIdUsuario;
     }
 
-    // Construtor padrão
     public OrdemDeServico() {
     }
 
-    // Getters e Setters
     public int getIdOrdem() {
         return idOrdem;
     }

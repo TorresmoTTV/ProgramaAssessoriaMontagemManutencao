@@ -5,17 +5,15 @@ public class Verifica {
     private int fkOrdemDeServicoIdOrdem;
     private int fkRelatorioIdRelatorio;
 
-    // Construtor
+    
     public Verifica(int fkOrdemDeServicoIdOrdem, int fkRelatorioIdRelatorio) {
         this.fkOrdemDeServicoIdOrdem = fkOrdemDeServicoIdOrdem;
         this.fkRelatorioIdRelatorio = fkRelatorioIdRelatorio;
     }
 
-    // Construtor padrão
     public Verifica() {
     }
 
-    // Getters e Setters
     public int getFkOrdemDeServicoIdOrdem() {
         return fkOrdemDeServicoIdOrdem;
     }

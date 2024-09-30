@@ -15,7 +15,6 @@ public class ProjetoServicos {
     }
 
     public void cadastrarProjeto(Projeto projeto) throws SQLException {
-        // Adicionar validações, se necessário
         projetoDAO.cadastrarProjeto(projeto);
     }
 

@@ -25,7 +25,6 @@ public class Usuario {
         this.perfilDeAcessoId = perfilDeAcessoId;
     }
 
-    // Getters e Setters
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -98,7 +97,6 @@ public class Usuario {
         this.perfilDeAcessoId = perfilDeAcessoId;
     }
 
-    // Método para exibir informações do usuário (opcional)
     @Override
     public String toString() {
         return "Usuario{" +

@@ -9,7 +9,8 @@ public class Conexao {
     private static String user = "root";
     private static String pass = "";
 
-    public static Connection getConexao() throws SQLException{
+    // Conexao com o banco
+    public static Connection getConexao() throws SQLException {
         Connection c = null;
         try {
             c = DriverManager.getConnection(host, user, pass);

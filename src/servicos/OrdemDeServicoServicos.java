@@ -15,7 +15,6 @@ public class OrdemDeServicoServicos {
     }
 
     public void cadastrarOrdemDeServico(OrdemDeServico ordem) throws SQLException {
-        // Adicionar validações, se necessário
         ordemDeServicoDAO.cadastrarOrdemDeServico(ordem);
     }
 

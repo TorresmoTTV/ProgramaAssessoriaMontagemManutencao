@@ -15,7 +15,6 @@ public class RelatorioServicos {
     }
 
     public void cadastrarRelatorio(Relatorio relatorio) throws SQLException {
-        // Adicionar validações, se necessário
         relatorioDAO.cadastrarRelatorio(relatorio);
     }
 

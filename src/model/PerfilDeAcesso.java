@@ -7,7 +7,7 @@ public class PerfilDeAcesso {
     private String descricao;
     private String tipo;
 
-    // Construtor
+
     public PerfilDeAcesso(int idPerfilDeAcesso, String nome, String descricao, String tipo) {
         this.idPerfilDeAcesso = idPerfilDeAcesso;
         this.nome = nome;
@@ -15,11 +15,9 @@ public class PerfilDeAcesso {
         this.tipo = tipo;
     }
 
-    // Construtor padrão
     public PerfilDeAcesso() {
     }
 
-    // Getters e Setters
     public int getIdPerfilDeAcesso() {
         return idPerfilDeAcesso;
     }

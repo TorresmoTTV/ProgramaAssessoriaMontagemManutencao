@@ -12,7 +12,6 @@ public class Projeto {
     private String linkUnboxing;
     private int fkOrdemDeServicoIdOrdem;
 
-    // Construtor
     public Projeto(int idProjeto, String nome, String condicao, Date dataInicio, Date dataFim, String linkUnboxing,
             int fkOrdemDeServicoIdOrdem) {
         this.idProjeto = idProjeto;
@@ -24,11 +23,9 @@ public class Projeto {
         this.fkOrdemDeServicoIdOrdem = fkOrdemDeServicoIdOrdem;
     }
 
-    // Construtor padrão
     public Projeto() {
     }
 
-    // Getters e Setters
     public int getIdProjeto() {
         return idProjeto;
     }

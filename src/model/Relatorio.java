@@ -10,7 +10,6 @@ public class Relatorio {
     private String conteudo;
     private int fkUsuarioIdUsuario;
 
-    // Construtor
     public Relatorio(int idRelatorio, String tipo, Date dataGeracao, String conteudo, int fkUsuarioIdUsuario) {
         this.idRelatorio = idRelatorio;
         this.tipo = tipo;
@@ -19,11 +18,9 @@ public class Relatorio {
         this.fkUsuarioIdUsuario = fkUsuarioIdUsuario;
     }
 
-    // Construtor padrão
     public Relatorio() {
     }
 
-    // Getters e Setters
     public int getIdRelatorio() {
         return idRelatorio;
     }
