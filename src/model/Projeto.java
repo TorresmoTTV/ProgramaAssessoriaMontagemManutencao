@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Projeto {
@@ -8,6 +9,7 @@ public class Projeto {
     private String nome;
     private String condicao;
     private Date dataInicio;
+    private LocalDate data2;
     private Date dataFim;
     private String linkUnboxing;
     private int fkOrdemDeServicoIdOrdem;
