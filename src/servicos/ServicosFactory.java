@@ -21,4 +21,9 @@ public class ServicosFactory {
     public static RelatorioServicos getRelatorioServicos() {
         return new RelatorioServicos();
     }
+
+    public static GeradorRelatorioPDF getGeradorRelatorioPDF() {
+        return new GeradorRelatorioPDF();
+    }
+
 }

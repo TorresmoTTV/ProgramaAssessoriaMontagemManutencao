@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import conexao.Conexao;
+import java.sql.Date;
 import model.Projeto;
 
 public class ProjetoDAO {
@@ -18,8 +19,8 @@ public class ProjetoDAO {
                 PreparedStatement pst = con.prepareStatement(sql)) {
             pst.setString(1, pVO.getNome());
             pst.setString(2, pVO.getCondicao());
-            pst.setDate(3, pVO.getDataInicio());
-            pst.setDate(4, pVO.getDataFim());
+            pst.setDate(3, (Date) pVO.getDataInicio());
+            pst.setDate(4, (Date) pVO.getDataFim());
             pst.setString(5, pVO.getLinkUnboxing());
             pst.setInt(6, pVO.getFkOrdemDeServicoIdOrdem());
             pst.execute();
@@ -53,7 +54,7 @@ public class ProjetoDAO {
         Projeto projeto = null;
 
         try (Connection con = Conexao.getConexao();
-            PreparedStatement pst = con.prepareStatement(sql)) {
+                PreparedStatement pst = con.prepareStatement(sql)) {
             pst.setInt(1, idProjeto);
             ResultSet rs = pst.executeQuery();
 
@@ -62,7 +63,7 @@ public class ProjetoDAO {
                 projeto.setIdProjeto(rs.getInt("IDProjeto"));
                 projeto.setNome(rs.getString("Nome"));
                 projeto.setCondicao(rs.getString("Condicao"));
-                projeto.setDataInicio(rs.getDate("DataInicio").toLocalDate()); // Converter Date para LocalDate
+                projeto.setDataInicio(rs.getDate("DataInicio")); // Converter Date para LocalDate
                 projeto.setDataFim(rs.getDate("DataFim") != null ? rs.getDate("DataFim").toLocalDate() : null); // Verifica se DataFim é null
                 projeto.setLinkUnboxing(rs.getString("LinkUnboxing"));
                 projeto.setFkOrdemDeServicoIdOrdem(rs.getInt("fk_OrdemdeServico_IDOrdem"));
@@ -77,8 +78,8 @@ public class ProjetoDAO {
                 PreparedStatement pst = con.prepareStatement(sql)) {
             pst.setString(1, pVO.getNome());
             pst.setString(2, pVO.getCondicao());
-            pst.setDate(3, pVO.getDataInicio());
-            pst.setDate(4, pVO.getDataFim());
+            pst.setDate(3, (Date) pVO.getDataInicio());
+            pst.setDate(4, (Date) pVO.getDataFim());
             pst.setString(5, pVO.getLinkUnboxing());
             pst.setInt(6, pVO.getFkOrdemDeServicoIdOrdem());
             pst.setInt(7, pVO.getIdProjeto());

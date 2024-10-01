@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import conexao.Conexao;
+import java.sql.Date;
 import model.Relatorio;
 
 public class RelatorioDAO {
@@ -17,7 +18,7 @@ public class RelatorioDAO {
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql)) {
             pst.setString(1, rVO.getTipo());
-            pst.setDate(2, rVO.getDataGeracao());
+            pst.setDate(2, (Date) rVO.getDataGeracao());
             pst.setString(3, rVO.getConteudo());
             pst.setInt(4, rVO.getFkUsuarioIdUsuario());
             pst.execute();
@@ -57,7 +58,7 @@ public class RelatorioDAO {
                 relatorio = new Relatorio();
                 relatorio.setIdRelatorio(rs.getInt("IDRelatorio"));
                 relatorio.setTipo(rs.getString("Tipo"));
-                relatorio.setDataGeracao(rs.getDate("DataGeracao").toLocalDate()); // Converter Date para LocalDate
+                relatorio.setDataGeracao(rs.getDate("DataGeracao"));
                 relatorio.setConteudo(rs.getString("Conteudo"));
                 relatorio.setFkUsuarioIdUsuario(rs.getInt("fk_Usuario_IDUsuario"));
             }
@@ -70,7 +71,7 @@ public class RelatorioDAO {
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql)) {
             pst.setString(1, rVO.getTipo());
-            pst.setDate(2, rVO.getDataGeracao());
+            pst.setDate(2, (Date) rVO.getDataGeracao());
             pst.setString(3, rVO.getConteudo());
             pst.setInt(4, rVO.getFkUsuarioIdUsuario());
             pst.setInt(5, rVO.getIdRelatorio());
