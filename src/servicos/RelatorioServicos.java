@@ -3,11 +3,17 @@ package servicos;
 import java.sql.SQLException;
 import java.util.List;
 
+import dao.OrdemDeServicoDAO;
+import dao.ProjetoDAO;
 import dao.RelatorioDAO;
+import model.OrdemDeServico;
+import model.Projeto;
 import model.Relatorio;
 
 public class RelatorioServicos {
 
+    private OrdemDeServicoDAO ordemDeServicoDAO;
+    private ProjetoDAO projetoDAO;
     private RelatorioDAO relatorioDAO;
 
     public RelatorioServicos() {
@@ -42,4 +48,13 @@ public class RelatorioServicos {
     public List<Relatorio> getRelatorios() throws SQLException {
         return relatorioDAO.getRelatorios();
     }
+
+    public List<OrdemDeServico> gerarRelatorioOrdensDeServico() throws SQLException {
+        return ordemDeServicoDAO.getOrdensDeServico();
+    }
+
+    public List<Projeto> gerarRelatorioProjetos() throws SQLException {
+        return projetoDAO.getProjetos();
+    }
+
 }
