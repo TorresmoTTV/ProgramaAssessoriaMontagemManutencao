@@ -44,6 +44,7 @@ public class CriarConta extends javax.swing.JFrame {
         jTelefoneCliente = new javax.swing.JTextField();
         jUsuarioCliente = new javax.swing.JTextField();
         jSenhaCliente = new javax.swing.JPasswordField();
+        jBVoltarLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,14 +85,23 @@ public class CriarConta extends javax.swing.JFrame {
 
         jSenhaCliente.setText("jPasswordField1");
 
+        jBVoltarLogin.setText("Voltar para Login");
+        jBVoltarLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBVoltarLoginActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(jLabel1)
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addGap(148, 148, 148)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jBVoltarLogin)
+                    .addComponent(jLabel1))
+                .addContainerGap(445, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(60, 60, 60)
@@ -131,7 +141,9 @@ public class CriarConta extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel1)
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                .addComponent(jBVoltarLogin)
+                .addGap(33, 33, 33))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(127, 127, 127)
@@ -191,6 +203,11 @@ public class CriarConta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBLimparClienteActionPerformed
 
+    private void jBVoltarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarLoginActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jBVoltarLoginActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -229,6 +246,7 @@ public class CriarConta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCriarContaCliente;
     private javax.swing.JButton jBLimparCliente;
+    private javax.swing.JButton jBVoltarLogin;
     private javax.swing.JTextField jCPFCliente;
     private javax.swing.JTextField jEmailCliente;
     private javax.swing.JLabel jLabel1;

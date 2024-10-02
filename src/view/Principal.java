@@ -129,10 +129,16 @@ public class Principal extends javax.swing.JFrame {
 
     private void jBCriarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCriarContaActionPerformed
         // TODO add your handling code here:
+        CriarConta janelaCriarConta = new CriarConta();
+        janelaCriarConta.setVisible(true);
+        janelaCriarConta.setDefaultCloseOperation(1);
     }//GEN-LAST:event_jBCriarContaActionPerformed
 
     private void jBAreaAdminTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAreaAdminTecnicoActionPerformed
         // TODO add your handling code here:
+        AdminTecnico janelaAdminTecnico = new AdminTecnico();
+        janelaAdminTecnico.setVisible(true);
+        janelaAdminTecnico.setDefaultCloseOperation(1);
     }//GEN-LAST:event_jBAreaAdminTecnicoActionPerformed
 
     /**
