@@ -131,6 +131,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         CriarConta janelaCriarConta = new CriarConta();
         janelaCriarConta.setVisible(true);
+        setVisible(false);
         janelaCriarConta.setDefaultCloseOperation(1);
     }//GEN-LAST:event_jBCriarContaActionPerformed
 

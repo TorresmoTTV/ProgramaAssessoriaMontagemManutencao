@@ -205,7 +205,6 @@ public class CriarConta extends javax.swing.JFrame {
 
     private void jBVoltarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarLoginActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_jBVoltarLoginActionPerformed
 
     /**
