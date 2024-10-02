@@ -1,16 +1,16 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Relatorio {
 
     private int idRelatorio;
     private String tipo;
-    private Date dataGeracao;
+    private LocalDate dataGeracao;
     private String conteudo;
     private int fkUsuarioIdUsuario;
 
-    public Relatorio(int idRelatorio, String tipo, Date dataGeracao, String conteudo, int fkUsuarioIdUsuario) {
+    public Relatorio(int idRelatorio, String tipo, LocalDate dataGeracao, String conteudo, int fkUsuarioIdUsuario) {
         this.idRelatorio = idRelatorio;
         this.tipo = tipo;
         this.dataGeracao = dataGeracao;
@@ -37,11 +37,11 @@ public class Relatorio {
         this.tipo = tipo;
     }
 
-    public Date getDataGeracao() {
+    public LocalDate getDataGeracao() {
         return dataGeracao;
     }
 
-    public void setDataGeracao(Date dataGeracao) {
+    public void setDataGeracao(LocalDate dataGeracao) {
         this.dataGeracao = dataGeracao;
     }
 

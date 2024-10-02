@@ -1,16 +1,16 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class OrdemDeServico {
 
     private int idOrdem;
-    private Date dataCriacao;
+    private LocalDate dataCriacao;
     private String condicao;
     private String descricao;
     private int fkUsuarioIdUsuario;
 
-    public OrdemDeServico(int idOrdem, Date dataCriacao, String condicao, String descricao, int fkUsuarioIdUsuario) {
+    public OrdemDeServico(int idOrdem, LocalDate dataCriacao, String condicao, String descricao, int fkUsuarioIdUsuario) {
         this.idOrdem = idOrdem;
         this.dataCriacao = dataCriacao;
         this.condicao = condicao;
@@ -29,11 +29,11 @@ public class OrdemDeServico {
         this.idOrdem = idOrdem;
     }
 
-    public Date getDataCriacao() {
+    public LocalDate getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(Date dataCriacao) {
+    public void setDataCriacao(LocalDate dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 

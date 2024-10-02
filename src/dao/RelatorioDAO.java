@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import conexao.Conexao;
-import java.sql.Date;
 import model.Relatorio;
 
 public class RelatorioDAO {
@@ -18,7 +18,7 @@ public class RelatorioDAO {
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql)) {
             pst.setString(1, rVO.getTipo());
-            pst.setDate(2, (Date) rVO.getDataGeracao());
+            pst.setDate(2, Date.valueOf(rVO.getDataGeracao()));
             pst.setString(3, rVO.getConteudo());
             pst.setInt(4, rVO.getFkUsuarioIdUsuario());
             pst.execute();
@@ -36,7 +36,7 @@ public class RelatorioDAO {
                 Relatorio re = new Relatorio();
                 re.setIdRelatorio(rs.getInt("IDRelatorio"));
                 re.setTipo(rs.getString("Tipo"));
-                re.setDataGeracao(rs.getDate("DataGeracao"));
+                re.setDataGeracao(rs.getDate("DataGeracao").toLocalDate());
                 re.setConteudo(rs.getString("Conteudo"));
                 re.setFkUsuarioIdUsuario(rs.getInt("fk_Usuario_IDUsuario"));
                 relatorios.add(re);
@@ -58,7 +58,7 @@ public class RelatorioDAO {
                 relatorio = new Relatorio();
                 relatorio.setIdRelatorio(rs.getInt("IDRelatorio"));
                 relatorio.setTipo(rs.getString("Tipo"));
-                relatorio.setDataGeracao(rs.getDate("DataGeracao"));
+                relatorio.setDataGeracao(rs.getDate("DataGeracao").toLocalDate());
                 relatorio.setConteudo(rs.getString("Conteudo"));
                 relatorio.setFkUsuarioIdUsuario(rs.getInt("fk_Usuario_IDUsuario"));
             }
@@ -71,7 +71,7 @@ public class RelatorioDAO {
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql)) {
             pst.setString(1, rVO.getTipo());
-            pst.setDate(2, (Date) rVO.getDataGeracao());
+            pst.setDate(2, Date.valueOf(rVO.getDataGeracao()));
             pst.setString(3, rVO.getConteudo());
             pst.setInt(4, rVO.getFkUsuarioIdUsuario());
             pst.setInt(5, rVO.getIdRelatorio());

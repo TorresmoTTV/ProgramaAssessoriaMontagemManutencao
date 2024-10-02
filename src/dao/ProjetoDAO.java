@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import conexao.Conexao;
-import java.sql.Date;
 import model.Projeto;
 
 public class ProjetoDAO {
@@ -19,8 +19,8 @@ public class ProjetoDAO {
                 PreparedStatement pst = con.prepareStatement(sql)) {
             pst.setString(1, pVO.getNome());
             pst.setString(2, pVO.getCondicao());
-            pst.setDate(3, (Date) pVO.getDataInicio());
-            pst.setDate(4, (Date) pVO.getDataFim());
+            pst.setDate(3, Date.valueOf(pVO.getDataInicio()));
+            pst.setDate(4, Date.valueOf(pVO.getDataFim()));
             pst.setString(5, pVO.getLinkUnboxing());
             pst.setInt(6, pVO.getFkOrdemDeServicoIdOrdem());
             pst.execute();
@@ -39,8 +39,8 @@ public class ProjetoDAO {
                 pro.setIdProjeto(rs.getInt("IDProjeto"));
                 pro.setNome(rs.getString("Nome"));
                 pro.setCondicao(rs.getString("Condicao"));
-                pro.setDataInicio(rs.getDate("DataInicio"));
-                pro.setDataFim(rs.getDate("DataFim"));
+                pro.setDataInicio(rs.getDate("DataInicio").toLocalDate());
+                pro.setDataFim(rs.getDate("DataFim").toLocalDate());
                 pro.setLinkUnboxing(rs.getString("LinkUnboxing"));
                 pro.setFkOrdemDeServicoIdOrdem(rs.getInt("fk_OrdemdeServico_IDOrdem"));
                 projetos.add(pro);
@@ -63,8 +63,12 @@ public class ProjetoDAO {
                 projeto.setIdProjeto(rs.getInt("IDProjeto"));
                 projeto.setNome(rs.getString("Nome"));
                 projeto.setCondicao(rs.getString("Condicao"));
-                projeto.setDataInicio(rs.getDate("DataInicio")); // Converter Date para LocalDate
-                projeto.setDataFim(rs.getDate("DataFim") != null ? rs.getDate("DataFim").toLocalDate() : null); // Verifica se DataFim é null
+                projeto.setDataInicio(rs.getDate("DataInicio").toLocalDate()); // Converter Date para LocalDate
+                projeto.setDataFim(rs.getDate("DataFim") != null ? rs.getDate("DataFim").toLocalDate() : null); // Verifica
+                                                                                                                // se
+                                                                                                                // DataFim
+                                                                                                                // é
+                                                                                                                // null
                 projeto.setLinkUnboxing(rs.getString("LinkUnboxing"));
                 projeto.setFkOrdemDeServicoIdOrdem(rs.getInt("fk_OrdemdeServico_IDOrdem"));
             }
@@ -78,8 +82,8 @@ public class ProjetoDAO {
                 PreparedStatement pst = con.prepareStatement(sql)) {
             pst.setString(1, pVO.getNome());
             pst.setString(2, pVO.getCondicao());
-            pst.setDate(3, (Date) pVO.getDataInicio());
-            pst.setDate(4, (Date) pVO.getDataFim());
+            pst.setDate(3, Date.valueOf(pVO.getDataInicio()));
+            pst.setDate(4, Date.valueOf(pVO.getDataFim()));
             pst.setString(5, pVO.getLinkUnboxing());
             pst.setInt(6, pVO.getFkOrdemDeServicoIdOrdem());
             pst.setInt(7, pVO.getIdProjeto());
