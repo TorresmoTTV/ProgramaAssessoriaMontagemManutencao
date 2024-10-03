@@ -4,11 +4,19 @@
  * and open the template in the editor.
  */
 package view;
+
 /**
  *
  * @author 182310076
  */
 public class JanelaConfirmacaoLimpa extends javax.swing.JFrame {
+
+    private CriarConta criarConta;
+
+    public JanelaConfirmacaoLimpa(CriarConta criarConta) {
+        this.criarConta = criarConta;
+        initComponents();
+    }
 
     /**
      * Creates new form JanelaConfirmacaoLimpa
@@ -46,6 +54,11 @@ public class JanelaConfirmacaoLimpa extends javax.swing.JFrame {
         });
 
         jCancelar.setText("Cancelar");
+        jCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,11 +101,14 @@ public class JanelaConfirmacaoLimpa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jConfrimarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConfrimarActionPerformed
-        // TODO add your handling code here:
-        CriarConta CriarConta = new CriarConta();
-        CriarConta.limparCamposConta();
-        setVisible(false);
+        criarConta.limparCamposConta();
+        this.dispose();
     }//GEN-LAST:event_jConfrimarActionPerformed
+
+    private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_jCancelarActionPerformed
 
     /**
      * @param args the command line arguments

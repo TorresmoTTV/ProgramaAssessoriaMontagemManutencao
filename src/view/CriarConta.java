@@ -5,6 +5,10 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+import servicos.ServicosFactory;
+import servicos.UsuarioServicos;
+
 /**
  *
  * @author 182310076
@@ -17,8 +21,8 @@ public class CriarConta extends javax.swing.JFrame {
     public CriarConta() {
         initComponents();
     }
-    
-    public void limparCamposConta(){
+
+    public void limparCamposConta() {
         jNomeCliente.setText("");
         jEmailCliente.setText("");
         jCPFCliente.setText("");
@@ -101,8 +105,6 @@ public class CriarConta extends javax.swing.JFrame {
             }
         });
 
-        jSenhaCliente.setText("jPasswordField1");
-
         jBVoltarLogin.setText("Voltar para Login");
         jBVoltarLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,38 +178,22 @@ public class CriarConta extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jCPFCliente))
-                .addGap(4, 4, 4)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jEndrecoCliente)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jTelefoneCliente)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jUsuarioCliente)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jSenhaCliente))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jEndrecoCliente))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTelefoneCliente))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jUsuarioCliente))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSenhaCliente)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(76, 76, 76)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBLimparCliente)
@@ -232,16 +218,18 @@ public class CriarConta extends javax.swing.JFrame {
 
     private void jBVoltarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarLoginActionPerformed
         // TODO add your handling code here:
+        Principal Principal = new Principal();
+        Principal.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_jBVoltarLoginActionPerformed
 
     private void jBLimparClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparClienteActionPerformed
-        // TODO add your handling code here:
-        JanelaConfirmacaoLimpa JanelaC = new JanelaConfirmacaoLimpa();
+        JanelaConfirmacaoLimpa JanelaC = new JanelaConfirmacaoLimpa(this);
         JanelaC.setVisible(true);
     }//GEN-LAST:event_jBLimparClienteActionPerformed
 
     private void jBCriarContaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCriarContaClienteActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jBCriarContaClienteActionPerformed
 
     private void jCPFClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCPFClienteActionPerformed

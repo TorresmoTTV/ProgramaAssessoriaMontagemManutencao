@@ -118,7 +118,9 @@ public class AdminTecnico extends javax.swing.JFrame {
 
     private void jBVoltarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarClienteActionPerformed
         // TODO add your handling code here:
-
+        Principal Principal = new Principal();
+        Principal.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_jBVoltarClienteActionPerformed
 
     /**

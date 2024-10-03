@@ -132,14 +132,13 @@ public class Principal extends javax.swing.JFrame {
         CriarConta janelaCriarConta = new CriarConta();
         janelaCriarConta.setVisible(true);
         setVisible(false);
-        janelaCriarConta.setDefaultCloseOperation(1);
     }//GEN-LAST:event_jBCriarContaActionPerformed
 
     private void jBAreaAdminTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAreaAdminTecnicoActionPerformed
         // TODO add your handling code here:
         AdminTecnico janelaAdminTecnico = new AdminTecnico();
         janelaAdminTecnico.setVisible(true);
-        janelaAdminTecnico.setDefaultCloseOperation(1);
+        setVisible(false);
     }//GEN-LAST:event_jBAreaAdminTecnicoActionPerformed
 
     /**
