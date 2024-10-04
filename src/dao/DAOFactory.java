@@ -21,4 +21,8 @@ public class DAOFactory {
     public static VerificaDAO getVerificaDAO() {
         return new VerificaDAO();
     }
+
+    public static PerfilDeAcessoDAO getPerfilDeAcessoDAO() {
+        return new PerfilDeAcessoDAO();
+    }
 }
