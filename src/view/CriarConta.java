@@ -5,7 +5,7 @@
  */
 package view;
 
-import javax.swing.JOptionPane;
+import model.Usuario;
 import servicos.ServicosFactory;
 import servicos.UsuarioServicos;
 
@@ -30,6 +30,10 @@ public class CriarConta extends javax.swing.JFrame {
         jTelefoneCliente.setText("");
         jUsuarioCliente.setText("");
         jSenhaCliente.setText("");
+    }
+
+    public boolean validaInputs() {
+        return true;
     }
 
     /**
@@ -229,7 +233,21 @@ public class CriarConta extends javax.swing.JFrame {
     }//GEN-LAST:event_jBLimparClienteActionPerformed
 
     private void jBCriarContaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCriarContaClienteActionPerformed
-        
+        if (validaInputs()) {
+            Usuario c = new Usuario();
+            c.setNome(jNomeCliente.getText().toUpperCase());
+            c.setEmail(jEmailCliente.getText());
+            c.setCpf(jCPFCliente.getText());
+            c.setEndereco(jEndrecoCliente.getText());
+            c.setTelefone(jTelefoneCliente.getText());
+            c.setUsuario(jUsuarioCliente.getText());
+            c.setSenha(jSenhaCliente.getText());// verificar encriptação senha
+            c.setPerfilDeAcessoId(1);
+
+            UsuarioServicos usuarioS = ServicosFactory.getUsuarioServicos();
+            usuarioS.cadastrarUsuario(c);
+            //janela para aviso que criou conta
+        }
     }//GEN-LAST:event_jBCriarContaClienteActionPerformed
 
     private void jCPFClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCPFClienteActionPerformed

@@ -5,14 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import conexao.Conexao;
 import model.Usuario;
 
 public class UsuarioDAO {
 
-    public void cadastrarUsuario(Usuario uVO) throws SQLException {
+    public void cadastrarUsuario(Usuario uVO) {
         String sql = "INSERT INTO Usuario (Nome, Email, Endereco, CPF, Telefone, Usuario, Senha, fk_PerfildeAcesso_IDPerfildeAcesso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql)) {
@@ -26,12 +25,15 @@ public class UsuarioDAO {
             pst.setInt(8, uVO.getPerfilDeAcessoId());
 
             pst.execute();
+            System.out.println("Usuario cadastrado com sucesso!!");
+        } catch (SQLException e) {
+            System.out.println("Erro ao cadastrar Usuario.\n" + e.getMessage());
         }
     }
 
-    public List<Usuario> getUsuarios() throws SQLException {
+    public ArrayList<Usuario> getUsuarios() {
         String sql = "SELECT * FROM Usuario";
-        List<Usuario> usuarioS = new ArrayList<>();
+        ArrayList<Usuario> usuarioS = new ArrayList<>();
 
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql);
@@ -51,11 +53,14 @@ public class UsuarioDAO {
 
                 usuarioS.add(us);
             }
+        } catch (SQLException e) {
+            System.out.println("Erro ao listar Usuario.\n"
+                    + e.getMessage());
         }
         return usuarioS;
     }
 
-    public void atualizarUsuario(Usuario uVO) throws SQLException {
+    public void atualizarUsuario(Usuario uVO) {
         String sql = "UPDATE Usuario SET Nome = ?, Email = ?, Endereco = ?, CPF = ?, Telefone = ?, Usuario = ?, Senha = ?, fk_PerfildeAcesso_IDPerfildeAcesso = ? WHERE IDUsuario = ?";
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql)) {
@@ -70,6 +75,9 @@ public class UsuarioDAO {
             pst.setInt(9, uVO.getIdUsuario());
 
             pst.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Erro ao editar Usuario.\n"
+                    + e.getMessage());
         }
     }
 
@@ -86,7 +94,7 @@ public class UsuarioDAO {
         return true;
     }
 
-    public Usuario getUsuarioById(int id) throws SQLException {
+    public Usuario getUsuarioById(int id) {
         String sql = "SELECT * FROM Usuario WHERE IDUsuario = ?";
         Usuario us = null;
 
@@ -107,6 +115,9 @@ public class UsuarioDAO {
                 us.setSenha(rs.getString("Senha"));
                 us.setPerfilDeAcessoId(rs.getInt("fk_PerfildeAcesso_IDPerfildeAcesso"));
             }
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar o Usuario.\n"
+                    + e.getMessage());
         }
         return us;
     }
