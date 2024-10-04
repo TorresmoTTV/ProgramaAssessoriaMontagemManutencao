@@ -1,42 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servicos;
+
+import java.util.ArrayList;
 
 import dao.DAOFactory;
 import dao.PerfilDeAcessoDAO;
+import model.PerfilDeAcesso;
 
-/**
- *
- * @author 182310076
- */
+
 public class PerfilDeAcessoServicos {
 
-    private PerfilDeAcessoDAO paDAO = DAOFactory.getPerfilDeAcessoDAO();
+    private PerfilDeAcessoDAO pDAO = DAOFactory.getPerfilDeAcessoDAO();
 
-    public void cadastrarPerfilDeAcesso(PerfildeAcesso perfil) {
-        perfilDeAcessoDAO.cadastrarPerfilDeAcesso(perfil);
+    public void cadastrarPerfilDeAcesso(PerfilDeAcesso perfil) {
+        pDAO.cadastrarPerfilDeAcesso(perfil);
     }
 
-    // Método para buscar um perfil de acesso pelo ID
-    public PerfildeAcesso buscarPerfilDeAcessoPorId(int id) {
-        return perfilDeAcessoDAO.getPerfilDeAcessoById(id);
+    public PerfilDeAcessoDAO buscarPerfilDeAcessoPorId(int id) {
+        return pDAO.getPerfilDeAcessoById(id);
     }
 
-    // Método para atualizar um perfil de acesso
     public void atualizarPerfilDeAcesso(PerfildeAcesso perfil) {
-        perfilDeAcessoDAO.atualizarPerfilDeAcesso(perfil);
+        pDAO.atualizarPerfilDeAcesso(perfil);
     }
 
-    // Método para deletar um perfil de acesso
     public void deletarPerfilDeAcesso(int id) {
-        perfilDeAcessoDAO.deletarPerfilDeAcesso(id);
+        pDAO.deletarPerfilDeAcesso(id);
     }
 
-    // Método para listar todos os perfis de acesso
     public ArrayList<PerfildeAcesso> listarPerfisDeAcesso() {
-        return perfilDeAcessoDAO.getPerfisDeAcesso();
+        return pDAO.getPerfisDeAcesso();
     }
 }

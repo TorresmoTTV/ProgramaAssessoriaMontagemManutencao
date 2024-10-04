@@ -13,9 +13,11 @@ import model.OrdemDeServico;
 public class OrdemDeServicoDAO {
 
     public void cadastrarOrdemDeServico(OrdemDeServico osVO) {
-        String sql = "INSERT INTO OrdemdeServico (DataCriacao, Condicao, Descricao, fk_Usuario_IDUsuario) VALUES (?, ?, ?, ?)";
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql)) {
+        
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "INSERT INTO OrdemdeServico (DataCriacao, Condicao, Descricao, fk_Usuario_IDUsuario) VALUES (?, ?, ?, ?)";
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setDate(1, Date.valueOf(osVO.getDataCriacao()));
             pst.setString(2, osVO.getCondicao());
             pst.setString(3, osVO.getDescricao());
@@ -27,11 +29,12 @@ public class OrdemDeServicoDAO {
     }
 
     public ArrayList<OrdemDeServico> getOrdensDeServico() {
-        String sql = "SELECT * FROM OrdemdeServico";
         ArrayList<OrdemDeServico> ordens = new ArrayList<>();
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql);
-                ResultSet rs = pst.executeQuery()) {
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "SELECT * FROM OrdemdeServico";
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 OrdemDeServico os = new OrdemDeServico();
                 os.setIdOrdem(rs.getInt("IDOrdem"));
@@ -48,9 +51,10 @@ public class OrdemDeServicoDAO {
     }
 
     public void atualizarOrdemDeServico(OrdemDeServico osVO) {
-        String sql = "UPDATE OrdemdeServico SET DataCriacao = ?, Condicao = ?, Descricao = ?, fk_Usuario_IDUsuario = ? WHERE IDOrdem = ?";
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql)) {
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "UPDATE OrdemdeServico SET DataCriacao = ?, Condicao = ?, Descricao = ?, fk_Usuario_IDUsuario = ? WHERE IDOrdem = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, osVO.getDataCriacao().toString());
             pst.setString(2, osVO.getCondicao());
             pst.setString(3, osVO.getDescricao());

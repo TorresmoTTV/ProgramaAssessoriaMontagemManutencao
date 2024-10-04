@@ -12,9 +12,10 @@ import model.Usuario;
 public class UsuarioDAO {
 
     public void cadastrarUsuario(Usuario uVO) {
-        String sql = "INSERT INTO Usuario (Nome, Email, Endereco, CPF, Telefone, Usuario, Senha, fk_PerfildeAcesso_IDPerfildeAcesso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql)) {
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "INSERT INTO Usuario (Nome, Email, Endereco, CPF, Telefone, Usuario, Senha, fk_PerfildeAcesso_IDPerfildeAcesso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, uVO.getNome());
             pst.setString(2, uVO.getEmail());
             pst.setString(3, uVO.getEndereco());
@@ -32,13 +33,12 @@ public class UsuarioDAO {
     }
 
     public ArrayList<Usuario> getUsuarios() {
-        String sql = "SELECT * FROM Usuario";
         ArrayList<Usuario> usuarioS = new ArrayList<>();
-
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql);
-                ResultSet rs = pst.executeQuery()) {
-
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "SELECT * FROM Usuario";
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Usuario us = new Usuario();
                 us.setIdUsuario(rs.getInt("IDUsuario"));
@@ -50,7 +50,6 @@ public class UsuarioDAO {
                 us.setUsuario(rs.getString("Usuario"));
                 us.setSenha(rs.getString("Senha"));
                 us.setPerfilDeAcessoId(rs.getInt("fk_PerfildeAcesso_IDPerfildeAcesso"));
-
                 usuarioS.add(us);
             }
         } catch (SQLException e) {
@@ -61,9 +60,10 @@ public class UsuarioDAO {
     }
 
     public void atualizarUsuario(Usuario uVO) {
-        String sql = "UPDATE Usuario SET Nome = ?, Email = ?, Endereco = ?, CPF = ?, Telefone = ?, Usuario = ?, Senha = ?, fk_PerfildeAcesso_IDPerfildeAcesso = ? WHERE IDUsuario = ?";
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql)) {
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "UPDATE Usuario SET Nome = ?, Email = ?, Endereco = ?, CPF = ?, Telefone = ?, Usuario = ?, Senha = ?, fk_PerfildeAcesso_IDPerfildeAcesso = ? WHERE IDUsuario = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, uVO.getNome());
             pst.setString(2, uVO.getEmail());
             pst.setString(3, uVO.getEndereco());
@@ -95,11 +95,12 @@ public class UsuarioDAO {
     }
 
     public Usuario getUsuarioById(int id) {
-        String sql = "SELECT * FROM Usuario WHERE IDUsuario = ?";
-        Usuario us = null;
+        Usuario us = new Usuario();
 
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql)) {
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "SELECT * FROM Usuario WHERE IDUsuario = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
 

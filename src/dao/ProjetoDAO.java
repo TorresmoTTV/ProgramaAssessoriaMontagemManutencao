@@ -13,9 +13,10 @@ import model.Projeto;
 public class ProjetoDAO {
 
     public void cadastrarProjeto(Projeto pVO) {
-        String sql = "INSERT INTO Projeto (Nome, Condicao, DataInicio, DataFim, LinkUnboxing, fk_OrdemdeServico_IDOrdem) VALUES (?, ?, ?, ?, ?, ?)";
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql)) {
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "INSERT INTO Projeto (Nome, Condicao, DataInicio, DataFim, LinkUnboxing, fk_OrdemdeServico_IDOrdem) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, pVO.getNome());
             pst.setString(2, pVO.getCondicao());
             pst.setDate(3, Date.valueOf(pVO.getDataInicio()));
@@ -29,12 +30,12 @@ public class ProjetoDAO {
     }
 
     public ArrayList<Projeto> getProjetos() {
-        String sql = "SELECT * FROM Projeto";
         ArrayList<Projeto> projetos = new ArrayList<>();
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql);
-                ResultSet rs = pst.executeQuery()) {
-
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "SELECT * FROM Projeto";
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Projeto pro = new Projeto();
                 pro.setIdProjeto(rs.getInt("IDProjeto"));
@@ -53,14 +54,13 @@ public class ProjetoDAO {
     }
 
     public Projeto getProjetoById(int idProjeto) {
-        String sql = "SELECT * FROM Projeto WHERE IDProjeto = ?";
-        Projeto projeto = null;
-
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql)) {
+        Projeto projeto = new Projeto();
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "SELECT * FROM Projeto WHERE IDProjeto = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, idProjeto);
             ResultSet rs = pst.executeQuery();
-
             if (rs.next()) {
                 projeto = new Projeto();
                 projeto.setIdProjeto(rs.getInt("IDProjeto"));
@@ -82,9 +82,10 @@ public class ProjetoDAO {
     }
 
     public void atualizarProjeto(Projeto pVO) {
-        String sql = "UPDATE Projeto SET Nome = ?, Condicao = ?, DataInicio = ?, DataFim = ?, LinkUnboxing = ?, fk_OrdemdeServico_IDOrdem = ? WHERE IDProjeto = ?";
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql)) {
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "UPDATE Projeto SET Nome = ?, Condicao = ?, DataInicio = ?, DataFim = ?, LinkUnboxing = ?, fk_OrdemdeServico_IDOrdem = ? WHERE IDProjeto = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, pVO.getNome());
             pst.setString(2, pVO.getCondicao());
             pst.setDate(3, Date.valueOf(pVO.getDataInicio()));
@@ -99,9 +100,10 @@ public class ProjetoDAO {
     }
 
     public void deletarProjeto(int id) {
-        String sql = "DELETE FROM Projeto WHERE IDProjeto = ?";
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql)) {
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "DELETE FROM Projeto WHERE IDProjeto = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, id);
             pst.executeUpdate();
         } catch (SQLException e) {
