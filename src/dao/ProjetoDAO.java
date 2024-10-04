@@ -6,14 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import conexao.Conexao;
 import model.Projeto;
 
 public class ProjetoDAO {
 
-    public void cadastrarProjeto(Projeto pVO) throws SQLException {
+    public void cadastrarProjeto(Projeto pVO) {
         String sql = "INSERT INTO Projeto (Nome, Condicao, DataInicio, DataFim, LinkUnboxing, fk_OrdemdeServico_IDOrdem) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql)) {
@@ -24,12 +23,14 @@ public class ProjetoDAO {
             pst.setString(5, pVO.getLinkUnboxing());
             pst.setInt(6, pVO.getFkOrdemDeServicoIdOrdem());
             pst.execute();
+        } catch (SQLException e) {
+            System.out.println("Erro ao cadastrar Projeto.\n" + e.getMessage());
         }
     }
 
-    public List<Projeto> getProjetos() throws SQLException {
+    public ArrayList<Projeto> getProjetos() {
         String sql = "SELECT * FROM Projeto";
-        List<Projeto> projetos = new ArrayList<>();
+        ArrayList<Projeto> projetos = new ArrayList<>();
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql);
                 ResultSet rs = pst.executeQuery()) {
@@ -45,11 +46,13 @@ public class ProjetoDAO {
                 pro.setFkOrdemDeServicoIdOrdem(rs.getInt("fk_OrdemdeServico_IDOrdem"));
                 projetos.add(pro);
             }
+        } catch (SQLException e) {
+            System.out.println("Erro ao listar Projetos.\n" + e.getMessage());
         }
         return projetos;
     }
 
-    public Projeto getProjetoById(int idProjeto) throws SQLException {
+    public Projeto getProjetoById(int idProjeto) {
         String sql = "SELECT * FROM Projeto WHERE IDProjeto = ?";
         Projeto projeto = null;
 
@@ -65,18 +68,20 @@ public class ProjetoDAO {
                 projeto.setCondicao(rs.getString("Condicao"));
                 projeto.setDataInicio(rs.getDate("DataInicio").toLocalDate()); // Converter Date para LocalDate
                 projeto.setDataFim(rs.getDate("DataFim") != null ? rs.getDate("DataFim").toLocalDate() : null); // Verifica
-                                                                                                                // se
-                                                                                                                // DataFim
-                                                                                                                // é
-                                                                                                                // null
+                // se
+                // DataFim
+                // é
+                // null
                 projeto.setLinkUnboxing(rs.getString("LinkUnboxing"));
                 projeto.setFkOrdemDeServicoIdOrdem(rs.getInt("fk_OrdemdeServico_IDOrdem"));
             }
+        } catch (SQLException e) {
+            System.out.println("Erro ao encontrar Projeto.\n" + e.getMessage());
         }
         return projeto;
     }
 
-    public void atualizarProjeto(Projeto pVO) throws SQLException {
+    public void atualizarProjeto(Projeto pVO) {
         String sql = "UPDATE Projeto SET Nome = ?, Condicao = ?, DataInicio = ?, DataFim = ?, LinkUnboxing = ?, fk_OrdemdeServico_IDOrdem = ? WHERE IDProjeto = ?";
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql)) {
@@ -88,15 +93,19 @@ public class ProjetoDAO {
             pst.setInt(6, pVO.getFkOrdemDeServicoIdOrdem());
             pst.setInt(7, pVO.getIdProjeto());
             pst.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Erro ao atualizar o Projeto.\n" + e.getMessage());
         }
     }
 
-    public void deletarProjeto(int id) throws SQLException {
+    public void deletarProjeto(int id) {
         String sql = "DELETE FROM Projeto WHERE IDProjeto = ?";
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql)) {
             pst.setInt(1, id);
             pst.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Erro ao deletar Projeto.\n" + e.getMessage());
         }
     }
 }

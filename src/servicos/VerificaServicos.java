@@ -1,34 +1,22 @@
 package servicos;
 
-import java.sql.SQLException;
-
+import dao.DAOFactory;
 import dao.VerificaDAO;
+import java.sql.SQLException;
 
 public class VerificaServicos {
 
-    private VerificaDAO verificaDAO;
-
-
-    public VerificaServicos() {
-        this.verificaDAO = new VerificaDAO();
-    }
+    private VerificaDAO vDAO = DAOFactory.getVerificaDAO();
 
     public void adicionarRelacao(int idOrdemServico, int idRelatorio) throws SQLException {
-        
-        if (verificaDAO.existeRelacao(idOrdemServico, idRelatorio)) {
-            throw new IllegalArgumentException("A relação entre a Ordem de Serviço e o Relatório já existe.");
-        }
-        verificaDAO.adicionarRelacao(idOrdemServico, idRelatorio);
+        vDAO.adicionarRelacao(idOrdemServico, idRelatorio);
     }
 
     public void deletarRelacao(int idOrdemServico, int idRelatorio) throws SQLException {
-        if (!verificaDAO.existeRelacao(idOrdemServico, idRelatorio)) {
-            throw new IllegalArgumentException("A relação entre a Ordem de Serviço e o Relatório não existe.");
-        }
-        verificaDAO.deletarRelacao(idOrdemServico, idRelatorio);
+        vDAO.deletarRelacao(idOrdemServico, idRelatorio);
     }
 
     public boolean existeRelacao(int idOrdemServico, int idRelatorio) throws SQLException {
-        return verificaDAO.existeRelacao(idOrdemServico, idRelatorio);
+        return vDAO.existeRelacao(idOrdemServico, idRelatorio);
     }
 }

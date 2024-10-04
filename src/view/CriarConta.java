@@ -5,6 +5,7 @@
  */
 package view;
 
+import dao.PerfilDeAcessoDAO;
 import model.Usuario;
 import servicos.ServicosFactory;
 import servicos.UsuarioServicos;

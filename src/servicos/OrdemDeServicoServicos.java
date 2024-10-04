@@ -1,45 +1,32 @@
 package servicos;
 
-import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 
+import dao.DAOFactory;
 import dao.OrdemDeServicoDAO;
 import model.OrdemDeServico;
 
 public class OrdemDeServicoServicos {
 
-    private OrdemDeServicoDAO ordemDeServicoDAO;
+    private OrdemDeServicoDAO oDAO = DAOFactory.getOrdemDeServicoDAO();
 
-    public OrdemDeServicoServicos() {
-        this.ordemDeServicoDAO = new OrdemDeServicoDAO();
+    public void cadastrarOrdemDeServico(OrdemDeServico ordem) {
+        oDAO.cadastrarOrdemDeServico(ordem);
     }
 
-    public void cadastrarOrdemDeServico(OrdemDeServico ordem) throws SQLException {
-        ordemDeServicoDAO.cadastrarOrdemDeServico(ordem);
+    public void atualizarOrdemDeServico(OrdemDeServico ordem) {
+        oDAO.atualizarOrdemDeServico(ordem);
     }
 
-    public void atualizarOrdemDeServico(OrdemDeServico ordem) throws SQLException {
-        if (ordem.getIdOrdem() <= 0) {
-            throw new IllegalArgumentException("ID de ordem de serviço inválido.");
-        }
-        ordemDeServicoDAO.atualizarOrdemDeServico(ordem);
+    public void deletarOrdemDeServico(int idOrdem) {
+        oDAO.deletarOrdemDeServico(idOrdem);
     }
 
-    public void deletarOrdemDeServico(int idOrdem) throws SQLException {
-        if (idOrdem <= 0) {
-            throw new IllegalArgumentException("ID de ordem de serviço inválido.");
-        }
-        ordemDeServicoDAO.deletarOrdemDeServico(idOrdem);
+    public OrdemDeServico getOrdemDeServicoById(int idOrdem) {
+        return oDAO.getOrdemDeServicoById(idOrdem);
     }
 
-    public OrdemDeServico getOrdemDeServicoById(int idOrdem) throws SQLException {
-        if (idOrdem <= 0) {
-            throw new IllegalArgumentException("ID de ordem de serviço inválido.");
-        }
-        return ordemDeServicoDAO.getOrdemDeServicoById(idOrdem);
-    }
-
-    public List<OrdemDeServico> getOrdensDeServico() throws SQLException {
-        return ordemDeServicoDAO.getOrdensDeServico();
+    public ArrayList<OrdemDeServico> getOrdensDeServico() {
+        return oDAO.getOrdensDeServico();
     }
 }
