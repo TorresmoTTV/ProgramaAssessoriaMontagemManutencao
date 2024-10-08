@@ -6,14 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import conexao.Conexao;
 import model.Relatorio;
 
 public class RelatorioDAO {
 
-    public void cadastrarRelatorio(Relatorio rVO) throws SQLException {
+    public void cadastrarRelatorio(Relatorio rVO) {
         String sql = "INSERT INTO Relatorio (Tipo, DataGeracao, Conteudo, fk_Usuario_IDUsuario) VALUES (?, ?, ?, ?)";
         try (Connection con = Conexao.getConexao();
                 PreparedStatement pst = con.prepareStatement(sql)) {
@@ -22,15 +21,19 @@ public class RelatorioDAO {
             pst.setString(3, rVO.getConteudo());
             pst.setInt(4, rVO.getFkUsuarioIdUsuario());
             pst.execute();
+        } catch (SQLException e) {
+            System.out.println("Erro ao criar Relatorio.\n" + e.getMessage());
         }
     }
 
-    public List<Relatorio> getRelatorios() throws SQLException {
-        String sql = "SELECT * FROM Relatorio";
-        List<Relatorio> relatorios = new ArrayList<>();
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql);
-                ResultSet rs = pst.executeQuery()) {
+    public ArrayList<Relatorio> getRelatorios() throws SQLException {
+
+        ArrayList<Relatorio> relatorios = new ArrayList<>();
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "SELECT * FROM Relatorio";
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
                 Relatorio re = new Relatorio();
@@ -41,16 +44,18 @@ public class RelatorioDAO {
                 re.setFkUsuarioIdUsuario(rs.getInt("fk_Usuario_IDUsuario"));
                 relatorios.add(re);
             }
-        }
+        }   catch (SQLException e) {
+            System.out.println("Erro ao listar Relatorios.\n"
+                    + e.getMessage());
         return relatorios;
     }
 
-    public Relatorio getRelatorioById(int idRelatorio) throws SQLException {
-        String sql = "SELECT * FROM Relatorio WHERE IDRelatorio = ?";
-        Relatorio relatorio = null;
-
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql)) {
+    public void getRelatorioById(int idRelatorio) {
+        Relatorio relatorio = new Relatorio();
+        try (){
+            Connection con = Conexao.getConexao();
+            String sql = "SELECT * FROM Relatorio WHERE IDRelatorio = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, idRelatorio);
             ResultSet rs = pst.executeQuery();
 
@@ -62,29 +67,24 @@ public class RelatorioDAO {
                 relatorio.setConteudo(rs.getString("Conteudo"));
                 relatorio.setFkUsuarioIdUsuario(rs.getInt("fk_Usuario_IDUsuario"));
             }
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar o Relatorio.\n"
+                    + e.getMessage());
         }
         return relatorio;
     }
 
-    public void atualizarRelatorio(Relatorio rVO) throws SQLException {
-        String sql = "UPDATE Relatorio SET Tipo = ?, DataGeracao = ?, Conteudo = ?, fk_Usuario_IDUsuario = ? WHERE IDRelatorio = ?";
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql)) {
-            pst.setString(1, rVO.getTipo());
-            pst.setDate(2, Date.valueOf(rVO.getDataGeracao()));
-            pst.setString(3, rVO.getConteudo());
-            pst.setInt(4, rVO.getFkUsuarioIdUsuario());
-            pst.setInt(5, rVO.getIdRelatorio());
-            pst.executeUpdate();
-        }
-    }
-
-    public void deletarRelatorio(int id) throws SQLException {
-        String sql = "DELETE FROM Relatorio WHERE IDRelatorio = ?";
-        try (Connection con = Conexao.getConexao();
-                PreparedStatement pst = con.prepareStatement(sql)) {
+    public boolean deletarRelatorio(int idRelatorio) {
+        try () {
+            Connection con = Conexao.getConexao();
+            String sql = "DELETE FROM Relatorio WHERE IDRelatorio = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
             pst.setInt(1, id);
-            pst.executeUpdate();
+            return pst.executeUpdate() != 0;
+        } catch (SQLException e) {
+            System.out.println("Erro ao deletar o Relatorio.\n" + e.getMessage());
         }
+        return true;
     }
+}
 }

@@ -43,8 +43,6 @@ public class AdminTecnico extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel2.setText("Senha:");
 
-        jSenha.setText("jPasswordField1");
-
         jBLogarAdminTecnico.setText("Entrar");
         jBLogarAdminTecnico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

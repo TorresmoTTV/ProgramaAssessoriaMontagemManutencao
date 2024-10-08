@@ -44,8 +44,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel2.setText("Senha:");
 
-        jSenhaCliente.setText("jPasswordField1");
-
         jBLogarCliente.setText("Entrar");
         jBLogarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
