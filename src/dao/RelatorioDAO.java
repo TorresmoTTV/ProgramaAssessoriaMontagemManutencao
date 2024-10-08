@@ -71,7 +71,6 @@ public class RelatorioDAO {
             System.out.println("Erro ao buscar o Relatorio.\n"
                     + e.getMessage());
         }
-        return relatorio;
     }
 
     public boolean deletarRelatorio(int idRelatorio) {
@@ -87,4 +86,4 @@ public class RelatorioDAO {
         return true;
     }
 }
-}
+

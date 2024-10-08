@@ -11,7 +11,7 @@ import model.PerfilDeAcesso;
 
 public class PerfilDeAcessoDAO {
 
-    public void cadastrarPerfilDeAcesso(PerfilDeAcesso pVO) throws SQLException {
+    public void cadastrarPerfilDeAcesso(PerfilDeAcesso pVO) {
         try {
             Connection con = Conexao.getConexao();
             String sql = "INSERT INTO PerfildeAcesso (Nome, Descricao, Tipo) VALUES (?, ?, ?)";
@@ -46,7 +46,7 @@ public class PerfilDeAcessoDAO {
         return perfis;
     }
 
-    public void atualizarPerfilDeAcesso(PerfilDeAcesso pVO) throws SQLException {
+    public void atualizarPerfilDeAcesso(PerfilDeAcesso pVO) {
         try {
             Connection con = Conexao.getConexao();
             String sql = "UPDATE PerfildeAcesso SET Nome = ?, Descricao = ?, Tipo = ? WHERE IDPerfildeAcesso = ?";

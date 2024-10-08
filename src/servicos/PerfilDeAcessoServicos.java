@@ -27,7 +27,7 @@ public class PerfilDeAcessoServicos {
         pDAO.deletarPerfilDeAcesso(id);
     }
 
-    public ArrayList<PerfildeAcesso> listarPerfisDeAcesso() {
+    public ArrayList<PerfisdeAcesso> listarPerfisDeAcesso() {
         return pDAO.getPerfisDeAcesso();
     }
 }
