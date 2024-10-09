@@ -14,23 +14,23 @@ import servicos.UsuarioServicos;
  *
  * @author 182310076
  */
-public class CriarConta extends javax.swing.JFrame {
+public class CriarContaTecnico extends javax.swing.JFrame {
 
     /**
      * Creates new form CriarConta
      */
-    public CriarConta() {
+    public CriarContaTecnico() {
         initComponents();
     }
 
     public void limparCamposConta() {
-        jNomeCliente.setText("");
-        jEmailCliente.setText("");
-        jCPFCliente.setText("");
-        jEndrecoCliente.setText("");
-        jTelefoneCliente.setText("");
-        jUsuarioCliente.setText("");
-        jSenhaCliente.setText("");
+        jNomeTecnico.setText("");
+        jEmailTecnico.setText("");
+        jCPFTecnico.setText("");
+        jEndrecoTecnico.setText("");
+        jTelefoneTecnico.setText("");
+        jUsuarioTecnico.setText("");
+        jSenhaTecnico.setText("");
     }
 
     public boolean validaInputs() {
@@ -55,17 +55,17 @@ public class CriarConta extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jBCriarContaCliente = new javax.swing.JButton();
-        jBLimparCliente = new javax.swing.JButton();
-        jNomeCliente = new javax.swing.JTextField();
-        jEmailCliente = new javax.swing.JTextField();
-        jCPFCliente = new javax.swing.JTextField();
-        jTelefoneCliente = new javax.swing.JTextField();
-        jUsuarioCliente = new javax.swing.JTextField();
-        jSenhaCliente = new javax.swing.JPasswordField();
-        jBVoltarLogin = new javax.swing.JButton();
+        jBCriarContaTecnico = new javax.swing.JButton();
+        jBExcluirTecnico = new javax.swing.JButton();
+        jNomeTecnico = new javax.swing.JTextField();
+        jEmailTecnico = new javax.swing.JTextField();
+        jCPFTecnico = new javax.swing.JTextField();
+        jTelefoneTecnico = new javax.swing.JTextField();
+        jUsuarioTecnico = new javax.swing.JTextField();
+        jSenhaTecnico = new javax.swing.JPasswordField();
+        jBVoltarPaginaAdministrador = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jEndrecoCliente = new javax.swing.JTextField();
+        jEndrecoTecnico = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,30 +90,30 @@ public class CriarConta extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel7.setText("Senha:");
 
-        jBCriarContaCliente.setText("Criar Conta");
-        jBCriarContaCliente.addActionListener(new java.awt.event.ActionListener() {
+        jBCriarContaTecnico.setText("Criar Conta");
+        jBCriarContaTecnico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCriarContaClienteActionPerformed(evt);
+                jBCriarContaTecnicoActionPerformed(evt);
             }
         });
 
-        jBLimparCliente.setText("Limpar");
-        jBLimparCliente.addActionListener(new java.awt.event.ActionListener() {
+        jBExcluirTecnico.setText("Excluir");
+        jBExcluirTecnico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBLimparClienteActionPerformed(evt);
+                jBExcluirTecnicoActionPerformed(evt);
             }
         });
 
-        jCPFCliente.addActionListener(new java.awt.event.ActionListener() {
+        jCPFTecnico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCPFClienteActionPerformed(evt);
+                jCPFTecnicoActionPerformed(evt);
             }
         });
 
-        jBVoltarLogin.setText("Voltar para Login");
-        jBVoltarLogin.addActionListener(new java.awt.event.ActionListener() {
+        jBVoltarPaginaAdministrador.setText("Voltar para Administrador");
+        jBVoltarPaginaAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBVoltarLoginActionPerformed(evt);
+                jBVoltarPaginaAdministradorActionPerformed(evt);
             }
         });
 
@@ -133,22 +133,22 @@ public class CriarConta extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel1)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jBLimparCliente)
+                                        .addComponent(jBExcluirTecnico)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jBCriarContaCliente)
+                                        .addComponent(jBCriarContaTecnico)
                                         .addGap(137, 137, 137)))
                                 .addGap(193, 193, 193)
-                                .addComponent(jBVoltarLogin))
+                                .addComponent(jBVoltarPaginaAdministrador))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSenhaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jSenhaTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(112, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jUsuarioCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jUsuarioTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -159,11 +159,11 @@ public class CriarConta extends javax.swing.JFrame {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jNomeCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                                    .addComponent(jEmailCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                                    .addComponent(jCPFCliente)
-                                    .addComponent(jTelefoneCliente)
-                                    .addComponent(jEndrecoCliente))))
+                                    .addComponent(jNomeTecnico, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                                    .addComponent(jEmailTecnico, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+                                    .addComponent(jCPFTecnico)
+                                    .addComponent(jTelefoneTecnico)
+                                    .addComponent(jEndrecoTecnico))))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -174,36 +174,36 @@ public class CriarConta extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jNomeCliente))
+                    .addComponent(jNomeTecnico))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jEmailCliente))
+                    .addComponent(jEmailTecnico))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jCPFCliente))
+                    .addComponent(jCPFTecnico))
                 .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jEndrecoCliente))
+                    .addComponent(jEndrecoTecnico))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTelefoneCliente))
+                    .addComponent(jTelefoneTecnico))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jUsuarioCliente))
+                    .addComponent(jUsuarioTecnico))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSenhaCliente)
+                    .addComponent(jSenhaTecnico)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(76, 76, 76)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBLimparCliente)
-                    .addComponent(jBVoltarLogin)
-                    .addComponent(jBCriarContaCliente))
+                    .addComponent(jBExcluirTecnico)
+                    .addComponent(jBVoltarPaginaAdministrador)
+                    .addComponent(jBCriarContaTecnico))
                 .addGap(47, 47, 47))
         );
 
@@ -221,41 +221,40 @@ public class CriarConta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBVoltarLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarLoginActionPerformed
+    private void jBVoltarPaginaAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarPaginaAdministradorActionPerformed
         // TODO add your handling code here:
-        Principal Principal = new Principal();
-        Principal.setVisible(true);
+        Administrador Administrador = new Administrador();
+        Administrador.setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_jBVoltarLoginActionPerformed
+    }//GEN-LAST:event_jBVoltarPaginaAdministradorActionPerformed
 
-    private void jBLimparClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimparClienteActionPerformed
-        JanelaConfirmacaoLimpa JanelaC = new JanelaConfirmacaoLimpa(this);
-        JanelaC.setVisible(true);
-    }//GEN-LAST:event_jBLimparClienteActionPerformed
+    private void jBExcluirTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirTecnicoActionPerformed
+        Usuario u //terminar
+    }//GEN-LAST:event_jBExcluirTecnicoActionPerformed
 
-    private void jBCriarContaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCriarContaClienteActionPerformed
+    private void jBCriarContaTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCriarContaTecnicoActionPerformed
         if (validaInputs()) {
             Usuario c = new Usuario();
             PerfilDeAcesso p = new PerfilDeAcesso();
-            c.setNome(jNomeCliente.getText().toUpperCase());
-            c.setEmail(jEmailCliente.getText());
-            c.setCpf(jCPFCliente.getText());
-            c.setEndereco(jEndrecoCliente.getText());
-            c.setTelefone(jTelefoneCliente.getText());
-            c.setUsuario(jUsuarioCliente.getText());
-            c.setSenha(jSenhaCliente.getText());// verificar encriptação senha
-            p.setNome(jNomeCliente.getText().toUpperCase());
+            c.setNome(jNomeTecnico.getText().toUpperCase());
+            c.setEmail(jEmailTecnico.getText());
+            c.setCpf(jCPFTecnico.getText());
+            c.setEndereco(jEndrecoTecnico.getText());
+            c.setTelefone(jTelefoneTecnico.getText());
+            c.setUsuario(jUsuarioTecnico.getText());
+            c.setSenha(jSenhaTecnico.getText());// verificar encriptação senha
+            p.setNome(jNomeTecnico.getText().toUpperCase());
             p.setTipo(("1"));
 
             UsuarioServicos usuarioS = ServicosFactory.getUsuarioServicos();
             usuarioS.cadastrarUsuario(c);
             //janela para aviso que criou conta
         }
-    }//GEN-LAST:event_jBCriarContaClienteActionPerformed
+    }//GEN-LAST:event_jBCriarContaTecnicoActionPerformed
 
-    private void jCPFClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCPFClienteActionPerformed
+    private void jCPFTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCPFTecnicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCPFClienteActionPerformed
+    }//GEN-LAST:event_jCPFTecnicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,31 +273,32 @@ public class CriarConta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CriarConta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CriarContaTecnico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CriarConta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CriarContaTecnico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CriarConta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CriarContaTecnico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CriarConta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CriarContaTecnico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CriarConta().setVisible(true);
+                new CriarContaTecnico().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBCriarContaCliente;
-    private javax.swing.JButton jBLimparCliente;
-    private javax.swing.JButton jBVoltarLogin;
-    private javax.swing.JTextField jCPFCliente;
-    private javax.swing.JTextField jEmailCliente;
-    private javax.swing.JTextField jEndrecoCliente;
+    private javax.swing.JButton jBCriarContaTecnico;
+    private javax.swing.JButton jBExcluirTecnico;
+    private javax.swing.JButton jBVoltarPaginaAdministrador;
+    private javax.swing.JTextField jCPFTecnico;
+    private javax.swing.JTextField jEmailTecnico;
+    private javax.swing.JTextField jEndrecoTecnico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -307,11 +307,11 @@ public class CriarConta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jNomeCliente;
+    private javax.swing.JTextField jNomeTecnico;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JPasswordField jSenhaCliente;
-    private javax.swing.JTextField jTelefoneCliente;
-    private javax.swing.JTextField jUsuarioCliente;
+    private javax.swing.JPasswordField jSenhaTecnico;
+    private javax.swing.JTextField jTelefoneTecnico;
+    private javax.swing.JTextField jUsuarioTecnico;
     // End of variables declaration//GEN-END:variables
 }

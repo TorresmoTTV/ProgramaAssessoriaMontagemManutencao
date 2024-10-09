@@ -14,7 +14,7 @@ import model.OrdemDeServico;
 
 public class GeradorRelatorioPDF {
 
-    public void gerarRelatorio(List<OrdemDeServico> ordens) throws FileNotFoundException, DocumentException {
+    public void gerarRelatorioOrdemDeServico(List<OrdemDeServico> ordens) throws FileNotFoundException, DocumentException {
         Document document = new Document();
 
         // Criando diretório se não existir

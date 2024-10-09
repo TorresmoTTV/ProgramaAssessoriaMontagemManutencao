@@ -73,4 +73,25 @@ public class PerfilDeAcessoDAO {
         }
         return true;
     }
+
+    public PerfilDeAcesso getPerfilDeAcessoById(int id) {
+        PerfilDeAcesso perfis = new PerfilDeAcesso();
+        try {
+            Connection con = Conexao.getConexao();
+            String sql = "SELECT * FROM PerfildeAcesso";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                PerfilDeAcesso perfil = new PerfilDeAcesso();
+                perfil.setIdPerfilDeAcesso(rs.getInt("IDPerfildeAcesso"));
+                perfil.setNome(rs.getString("Nome"));
+                perfil.setDescricao(rs.getString("Descricao"));
+                perfil.setTipo(rs.getString("Tipo"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao listar Perfil de Acesso.\n" + e.getMessage());
+        }
+        return perfis;
+    }
 }

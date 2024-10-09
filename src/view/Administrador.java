@@ -5,6 +5,8 @@
  */
 package view;
 
+import servicos.GeradorRelatorioPDF;
+
 /**
  *
  * @author 182310076
@@ -29,53 +31,25 @@ public class Administrador extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableOrdemDeServicos = new javax.swing.JTable();
-        jScrollPaneListaProjeto = new javax.swing.JScrollPane();
-        jTableListaProjeto = new javax.swing.JTable();
-        jScrollPaneTecnico = new javax.swing.JScrollPane();
         jTableTecnicos = new javax.swing.JTable();
+        jScrollPaneListaProjeto = new javax.swing.JScrollPane();
+        jTableOrdemdeServico = new javax.swing.JTable();
+        jScrollPaneTecnico = new javax.swing.JScrollPane();
+        jTableProjetos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jMenuAdministrador = new javax.swing.JMenuBar();
         jMenuCriarAdministrador = new javax.swing.JMenu();
         jMenuItemCriarTecnico = new javax.swing.JMenuItem();
-        jMenuItemCriarRelatorio = new javax.swing.JMenuItem();
         jMenuItemCriarProjeto = new javax.swing.JMenuItem();
+        jMenuCriarRelatorio = new javax.swing.JMenu();
+        jMenuItemRelatorioOS = new javax.swing.JMenuItem();
         jMenuEditarAdministrador = new javax.swing.JMenu();
         jMenuItemEditarTécnico = new javax.swing.JMenuItem();
         jMenuItemEditarProjeto = new javax.swing.JMenuItem();
-        jMenuDeletarAdministrador = new javax.swing.JMenu();
-        jMenuItemDeletarTécnico = new javax.swing.JMenuItem();
-        jMenuItemDeletarProjeto = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jTableOrdemDeServicos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTableOrdemDeServicos);
-
-        jTableListaProjeto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPaneListaProjeto.setViewportView(jTableListaProjeto);
 
         jTableTecnicos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,7 +62,55 @@ public class Administrador extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPaneTecnico.setViewportView(jTableTecnicos);
+        jScrollPane1.setViewportView(jTableTecnicos);
+
+        jTableOrdemdeServico.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Data de Criação", "Condição", "Descrição", "Técnico"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPaneListaProjeto.setViewportView(jTableOrdemdeServico);
+        if (jTableOrdemdeServico.getColumnModel().getColumnCount() > 0) {
+            jTableOrdemdeServico.getColumnModel().getColumn(0).setResizable(false);
+            jTableOrdemdeServico.getColumnModel().getColumn(1).setResizable(false);
+            jTableOrdemdeServico.getColumnModel().getColumn(2).setResizable(false);
+            jTableOrdemdeServico.getColumnModel().getColumn(3).setResizable(false);
+            jTableOrdemdeServico.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        jTableProjetos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneTecnico.setViewportView(jTableProjetos);
 
         jLabel1.setText("Ordem de Serviços:");
 
@@ -151,38 +173,32 @@ public class Administrador extends javax.swing.JFrame {
         });
         jMenuCriarAdministrador.add(jMenuItemCriarTecnico);
 
-        jMenuItemCriarRelatorio.setText("Criar Relatório");
-        jMenuCriarAdministrador.add(jMenuItemCriarRelatorio);
-
         jMenuItemCriarProjeto.setText("Criar Projeto");
         jMenuCriarAdministrador.add(jMenuItemCriarProjeto);
 
+        jMenuCriarRelatorio.setText("Criar Relatórios");
+
+        jMenuItemRelatorioOS.setText("Ordem de Serviço");
+        jMenuItemRelatorioOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRelatorioOSActionPerformed(evt);
+            }
+        });
+        jMenuCriarRelatorio.add(jMenuItemRelatorioOS);
+
+        jMenuCriarAdministrador.add(jMenuCriarRelatorio);
+
         jMenuAdministrador.add(jMenuCriarAdministrador);
 
-        jMenuEditarAdministrador.setText("Editar");
+        jMenuEditarAdministrador.setText("Editar/Deletar");
 
-        jMenuItemEditarTécnico.setText("Editar Técnico");
+        jMenuItemEditarTécnico.setText("Editar/Deletar Técnico");
         jMenuEditarAdministrador.add(jMenuItemEditarTécnico);
 
-        jMenuItemEditarProjeto.setText("Editar Projeto");
+        jMenuItemEditarProjeto.setText("Editar/Deletar Projeto");
         jMenuEditarAdministrador.add(jMenuItemEditarProjeto);
 
         jMenuAdministrador.add(jMenuEditarAdministrador);
-
-        jMenuDeletarAdministrador.setText("Deletar");
-
-        jMenuItemDeletarTécnico.setText("Deletar Técnico");
-        jMenuItemDeletarTécnico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemDeletarTécnicoActionPerformed(evt);
-            }
-        });
-        jMenuDeletarAdministrador.add(jMenuItemDeletarTécnico);
-
-        jMenuItemDeletarProjeto.setText("Deletar Projeto");
-        jMenuDeletarAdministrador.add(jMenuItemDeletarProjeto);
-
-        jMenuAdministrador.add(jMenuDeletarAdministrador);
 
         setJMenuBar(jMenuAdministrador);
 
@@ -204,9 +220,11 @@ public class Administrador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemCriarTecnicoActionPerformed
 
-    private void jMenuItemDeletarTécnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDeletarTécnicoActionPerformed
+    private void jMenuItemRelatorioOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRelatorioOSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemDeletarTécnicoActionPerformed
+        GeradorRelatorioPDF GerarOS = new GeradorRelatorioPDF();
+        GerarOS.gerarRelatorioOrdemDeServico(ordens);
+    }//GEN-LAST:event_jMenuItemRelatorioOSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,21 +267,19 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuAdministrador;
     private javax.swing.JMenu jMenuCriarAdministrador;
-    private javax.swing.JMenu jMenuDeletarAdministrador;
+    private javax.swing.JMenu jMenuCriarRelatorio;
     private javax.swing.JMenu jMenuEditarAdministrador;
     private javax.swing.JMenuItem jMenuItemCriarProjeto;
-    private javax.swing.JMenuItem jMenuItemCriarRelatorio;
     private javax.swing.JMenuItem jMenuItemCriarTecnico;
-    private javax.swing.JMenuItem jMenuItemDeletarProjeto;
-    private javax.swing.JMenuItem jMenuItemDeletarTécnico;
     private javax.swing.JMenuItem jMenuItemEditarProjeto;
     private javax.swing.JMenuItem jMenuItemEditarTécnico;
+    private javax.swing.JMenuItem jMenuItemRelatorioOS;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPaneListaProjeto;
     private javax.swing.JScrollPane jScrollPaneTecnico;
-    private javax.swing.JTable jTableListaProjeto;
-    private javax.swing.JTable jTableOrdemDeServicos;
+    private javax.swing.JTable jTableOrdemdeServico;
+    private javax.swing.JTable jTableProjetos;
     private javax.swing.JTable jTableTecnicos;
     // End of variables declaration//GEN-END:variables
 }

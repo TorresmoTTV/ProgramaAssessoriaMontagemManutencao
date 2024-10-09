@@ -8,12 +8,6 @@ public class ServicosFactory {
         return usuarioS;
     }
 
-    private static VerificaServicos verificaS = new VerificaServicos();
-    
-    public static VerificaServicos getVerificaServicos() {
-        return verificaS;
-    }
-
     private static OrdemDeServicoServicos OrdemDeServicoServicosS = new OrdemDeServicoServicos();
     
     public static OrdemDeServicoServicos getOrdemDeServicoServicos() {
@@ -24,12 +18,6 @@ public class ServicosFactory {
             
     public static ProjetoServicos getProjetoServicos() {
         return ProjetoServicosS;
-    }
-    
-    private static RelatorioServicos RelatorioServicosS = new RelatorioServicos();
-            
-    public static RelatorioServicos getRelatorioServicos() {
-        return RelatorioServicosS;
     }
 
     private static GeradorRelatorioPDF GeradorRelatorioPDFs = new GeradorRelatorioPDF();

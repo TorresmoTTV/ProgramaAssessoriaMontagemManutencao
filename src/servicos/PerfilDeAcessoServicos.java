@@ -15,11 +15,7 @@ public class PerfilDeAcessoServicos {
         pDAO.cadastrarPerfilDeAcesso(perfil);
     }
 
-    public PerfilDeAcessoDAO buscarPerfilDeAcessoPorId(int id) {
-        return pDAO.getPerfilDeAcessoById(id);
-    }
-
-    public void atualizarPerfilDeAcesso(PerfildeAcesso perfil) {
+    public void atualizarPerfilDeAcesso(PerfilDeAcesso perfil) {
         pDAO.atualizarPerfilDeAcesso(perfil);
     }
 
@@ -27,7 +23,7 @@ public class PerfilDeAcessoServicos {
         pDAO.deletarPerfilDeAcesso(id);
     }
 
-    public ArrayList<PerfisdeAcesso> listarPerfisDeAcesso() {
+    public ArrayList<PerfilDeAcesso> listarPerfisDeAcesso() {
         return pDAO.getPerfisDeAcesso();
     }
 }

@@ -14,14 +14,6 @@ public class DAOFactory {
         return new ProjetoDAO();
     }
 
-    public static RelatorioDAO getRelatorioDAO() {
-        return new RelatorioDAO();
-    }
-
-    public static VerificaDAO getVerificaDAO() {
-        return new VerificaDAO();
-    }
-
     public static PerfilDeAcessoDAO getPerfilDeAcessoDAO() {
         return new PerfilDeAcessoDAO();
     }
