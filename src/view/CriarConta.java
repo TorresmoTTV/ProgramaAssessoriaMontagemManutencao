@@ -7,6 +7,7 @@ package view;
 
 import model.PerfilDeAcesso;
 import model.Usuario;
+import servicos.PerfilDeAcessoServicos;
 import servicos.ServicosFactory;
 import servicos.UsuarioServicos;
 
@@ -237,6 +238,12 @@ public class CriarConta extends javax.swing.JFrame {
         if (validaInputs()) {
             Usuario c = new Usuario();
             PerfilDeAcesso p = new PerfilDeAcesso();
+           
+            p.setNome(jNomeCliente.getText().toUpperCase());
+            p.setTipo(("1"));
+            PerfilDeAcessoServicos PerfilDeAcessoS = ServicosFactory.getPerfilDeAcessoServicos();
+            PerfilDeAcessoS.cadastrarPerfilDeAcesso(p);
+            
             c.setNome(jNomeCliente.getText().toUpperCase());
             c.setEmail(jEmailCliente.getText());
             c.setCpf(jCPFCliente.getText());
@@ -244,9 +251,7 @@ public class CriarConta extends javax.swing.JFrame {
             c.setTelefone(jTelefoneCliente.getText());
             c.setUsuario(jUsuarioCliente.getText());
             c.setSenha(jSenhaCliente.getText());// verificar encriptação senha
-            p.setNome(jNomeCliente.getText().toUpperCase());
-            p.setTipo(("1"));
-
+            
             UsuarioServicos usuarioS = ServicosFactory.getUsuarioServicos();
             usuarioS.cadastrarUsuario(c);
             //janela para aviso que criou conta

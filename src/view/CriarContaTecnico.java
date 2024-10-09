@@ -229,7 +229,7 @@ public class CriarContaTecnico extends javax.swing.JFrame {
     }//GEN-LAST:event_jBVoltarPaginaAdministradorActionPerformed
 
     private void jBExcluirTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExcluirTecnicoActionPerformed
-        Usuario u //terminar
+        
     }//GEN-LAST:event_jBExcluirTecnicoActionPerformed
 
     private void jBCriarContaTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCriarContaTecnicoActionPerformed

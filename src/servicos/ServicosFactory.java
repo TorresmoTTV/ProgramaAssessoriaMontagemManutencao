@@ -19,6 +19,12 @@ public class ServicosFactory {
     public static ProjetoServicos getProjetoServicos() {
         return ProjetoServicosS;
     }
+    
+    private static PerfilDeAcessoServicos PerfilDeAcessoS = new PerfilDeAcessoServicos();
+    
+    public static PerfilDeAcessoServicos getPerfilDeAcessoServicos() {
+        return PerfilDeAcessoS;
+    }
 
     private static GeradorRelatorioPDF GeradorRelatorioPDFs = new GeradorRelatorioPDF();
     
